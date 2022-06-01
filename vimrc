@@ -55,7 +55,9 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=R
   set guioptions-=L
-  if has("gui_win32")
+  if has("gui_gtk3")
+    set guifont=Fira\ Code\ 12
+  elseif has("gui_win32")
     set guifont=Fira\ Code:h12:cANSI
   endif
 endif
@@ -191,7 +193,7 @@ nmap <C-Right> <Plug>AirlineSelectNextTab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Coc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap gh :call CocAction('doHover')<CR>
-nmap gd <Plug>(coc-definition)
-nmap gi <Plug>(coc-implementation)
-nmap gr <Plug>(coc-references)
+nmap <leader>h :call CocAction('doHover')<CR>
+nmap <leader>d <Plug>(coc-definition)
+nmap <leader>c <Plug>(coc-declaration)
+nmap <leader>r <Plug>(coc-references)
