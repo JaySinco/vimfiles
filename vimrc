@@ -33,7 +33,9 @@ au FocusGained,BufEnter * checktime
 let mapleader = ","
 
 " Yanking/deleting operations copy to the system clipboard
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
+
+nmap "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 
 command! BufOnly silent! execute "%bd|e#|bd#"
 
@@ -56,9 +58,9 @@ if has("gui_running")
   set guioptions-=R
   set guioptions-=L
   if has("gui_gtk3")
-    set guifont=Fira\ Code\ 12
+    set guifont=Fira\ Code\ 11
   elseif has("gui_win32")
-    set guifont=Fira\ Code:h12:cANSI
+    set guifont=Fira\ Code:h11:cANSI
   endif
 endif
 
@@ -82,7 +84,7 @@ set ignorecase
 set smartcase
 
 " Highlight search results
-set hlsearch
+" set hlsearch
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -102,7 +104,7 @@ set mat=2
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
-set t_vb=
+set vb t_vb=
 set tm=500
 
 " Add a bit extra margin to the left
