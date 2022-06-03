@@ -63,6 +63,7 @@ set encoding=utf8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ttymouse=xterm2
 set mouse=a
 set number
 set cursorline
