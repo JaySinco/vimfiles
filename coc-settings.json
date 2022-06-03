@@ -1,13 +1,18 @@
 {
+    "coc.preferences.formatOnSaveFiletypes": [
+        "cpp",
+        "json"
+    ],
     "languageserver": {
         "clangd": {
             "command": "clangd",
             "args": [
                 "--completion-style=detailed",
+                "--function-arg-placeholders=0",
                 "--header-insertion=never"
             ],
             "rootPatterns": [
-                "compile_commands.json"
+                ".git"
             ],
             "requireRootPattern": true,
             "filetypes": [
