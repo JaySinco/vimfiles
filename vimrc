@@ -15,6 +15,8 @@ Plug 'https://hub.fastgit.xyz/junegunn/fzf'
 Plug 'https://hub.fastgit.xyz/junegunn/fzf.vim'
 Plug 'https://hub.fastgit.xyz/octol/vim-cpp-enhanced-highlight'
 Plug 'https://hub.fastgit.xyz/sheerun/vim-polyglot'
+Plug 'https://hub.fastgit.xyz/airblade/vim-gitgutter'
+Plug 'https://hub.fastgit.xyz/preservim/nerdcommenter'
 call plug#end()
 
 
@@ -33,7 +35,7 @@ set autoread
 au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
-let mapleader = ","
+let mapleader=","
 
 " Yanking/deleting operations copy to the system clipboard
 " set clipboard=unnamedplus
@@ -96,7 +98,8 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=700
+set updatetime=300
+set tm=500
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -133,7 +136,6 @@ set mat=2
 set noerrorbells
 set novisualbell
 set vb t_vb=
-set tm=500
 
 " Add a bit extra margin to the left
 set foldcolumn=1
@@ -149,6 +151,16 @@ set signcolumn=number
 nmap <leader>t :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>p :GFiles<CR>
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims=1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign='left'
+
+" Toggle comment
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
