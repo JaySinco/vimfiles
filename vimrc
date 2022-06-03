@@ -1,6 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+
 call plug#begin()
 Plug 'https://hub.fastgit.xyz/scrooloose/nerdtree'
 Plug 'https://hub.fastgit.xyz/vim-airline/vim-airline'
@@ -12,6 +14,7 @@ Plug 'https://hub.fastgit.xyz/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://hub.fastgit.xyz/junegunn/fzf'
 Plug 'https://hub.fastgit.xyz/junegunn/fzf.vim'
 Plug 'https://hub.fastgit.xyz/octol/vim-cpp-enhanced-highlight'
+Plug 'https://hub.fastgit.xyz/sheerun/vim-polyglot'
 call plug#end()
 
 
@@ -38,6 +41,23 @@ let mapleader = ","
 nmap "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 
 command! BufOnly silent! execute "%bd|e#|bd#"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Themes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+" Enable 256 colors palette
+set t_Co=256
+
+set background=dark
+silent! colorscheme gruvbox
+let g:airline_theme='gruvbox'
+
+" Set utf8 as standard encoding
+set encoding=utf8
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,22 +143,6 @@ set signcolumn=number
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-
-" Enable 256 colors palette
-set t_Co=256
-
-set background=dark
-silent! colorscheme gruvbox
-
-" Set utf8 as standard encoding
-set encoding=utf8
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files and saves
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>t :NERDTreeToggle<CR>
@@ -186,7 +190,6 @@ set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='gruvbox'
 let g:airline_section_b='%{getcwd()}'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_idx_mode=1
@@ -254,16 +257,6 @@ endfunction
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
