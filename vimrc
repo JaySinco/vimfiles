@@ -152,16 +152,6 @@ nmap <leader>t :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>p :GFiles<CR>
 
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims=1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign='left'
-
-" Toggle comment
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
-
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
 set nowritebackup
@@ -201,10 +191,40 @@ set wrap "Wrap lines
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vim-gitgutter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>d <Plug>(GitGutterPreviewHunk)
+
+" Don't want vim-gitgutter to set up any mappings at all
+let g:gitgutter_map_keys=0
+
+" Use floating/popup windows for hunk previews
+let g:gitgutter_preview_win_floating=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nerd-commenter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Dont't create mappings
+let g:NERDCreateDefaultMappings=0
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims=1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign='left'
+
+" Toggle comment
+nmap <leader>c <Plug>NERDCommenterToggle
+vmap <leader>c <Plug>NERDCommenterToggle<CR>gv
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_idx_mode=1
+let g:airline#extensions#hunks#enabled=1
 
 nmap <leader>x :bp <BAR> bd #<CR>
 
