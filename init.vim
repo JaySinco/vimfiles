@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 
-call plug#begin()
+call plug#begin(stdpath('config').'/plugged')
 Plug 'https://hub.fastgit.xyz/scrooloose/nerdtree'
 Plug 'https://hub.fastgit.xyz/vim-airline/vim-airline'
 Plug 'https://hub.fastgit.xyz/vim-airline/vim-airline-themes'
