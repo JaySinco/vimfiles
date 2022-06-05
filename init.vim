@@ -5,10 +5,7 @@ set nocompatible
 
 call plug#begin(stdpath('config').'/plugged')
 Plug 'https://hub.fastgit.xyz/scrooloose/nerdtree'
-Plug 'https://hub.fastgit.xyz/vim-airline/vim-airline'
-Plug 'https://hub.fastgit.xyz/vim-airline/vim-airline-themes'
 Plug 'https://hub.fastgit.xyz/easymotion/vim-easymotion'
-Plug 'https://hub.fastgit.xyz/morhetz/gruvbox'
 Plug 'https://hub.fastgit.xyz/tpope/vim-fugitive'
 Plug 'https://hub.fastgit.xyz/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://hub.fastgit.xyz/junegunn/fzf'
@@ -17,6 +14,10 @@ Plug 'https://hub.fastgit.xyz/octol/vim-cpp-enhanced-highlight'
 Plug 'https://hub.fastgit.xyz/sheerun/vim-polyglot'
 Plug 'https://hub.fastgit.xyz/airblade/vim-gitgutter'
 Plug 'https://hub.fastgit.xyz/preservim/nerdcommenter'
+Plug 'https://hub.fastgit.xyz/kyazdani42/nvim-web-devicons'
+Plug 'https://hub.fastgit.xyz/nvim-lualine/lualine.nvim'
+Plug 'https://hub.fastgit.xyz/akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'https://hub.fastgit.xyz/folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 
 
@@ -48,18 +49,23 @@ command! BufOnly silent! execute "%bd|e#|bd#"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Themes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
 syntax enable
-
-" Enable 256 colors palette
-set t_Co=256
-
-set background=dark
-silent! colorscheme gruvbox
-let g:airline_theme='gruvbox'
-
-" Set utf8 as standard encoding
 set encoding=utf8
+set termguicolors
+
+lua << END
+require('lualine').setup {
+  options = {
+    theme = 'tokyonight'
+  }
+}
+END
+
+let g:tokyonight_style="storm"
+let g:tokyonight_italic_functions=0
+let g:tokyonight_sidebars=["qf", "vista_kind", "terminal", "packer"]
+
+silent! colorscheme tokyonight
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -173,7 +179,7 @@ set wrap "Wrap lines
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim-gitgutter
+" => Vim gitgutter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>d <Plug>(GitGutterPreviewHunk)
 
@@ -185,7 +191,7 @@ let g:gitgutter_preview_win_floating=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd-commenter
+" => Nerd commenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dont't create mappings
 let g:NERDCreateDefaultMappings=0
@@ -202,26 +208,14 @@ vmap <leader>c <Plug>NERDCommenterToggle<CR>gv
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Airline
+" => Buffer line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#buffer_idx_mode=1
-let g:airline#extensions#hunks#enabled=1
+lua << END
+require("bufferline").setup{}
+END
 
-nmap <leader>x :bp <BAR> bd #<CR>
-
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>0 <Plug>AirlineSelectTab0
-nmap <C-Left>  <Plug>AirlineSelectPrevTab
-nmap <C-Right> <Plug>AirlineSelectNextTab
+nmap <C-Left>  :BufferLineCyclePrev<CR>
+nmap <C-Right> :BufferLineCycleNext<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
