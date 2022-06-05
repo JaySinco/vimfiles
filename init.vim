@@ -65,27 +65,9 @@ set encoding=utf8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set ttymouse=xterm2
 set mouse=a
 set number
 set cursorline
-
-" Set gui
-if has("gui_running")
-  set lines=30
-  set columns=108
-  set guioptions-=T
-  set guioptions-=m
-  set guioptions-=r
-  set guioptions-=l
-  set guioptions-=R
-  set guioptions-=L
-  if has("gui_gtk3")
-    set guifont=Fira\ Code\ 11
-  elseif has("gui_win32")
-    set guifont=Fira\ Code:h11:cANSI
-  endif
-endif
 
 " Set 7 lines to the cursor
 set so=7
