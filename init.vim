@@ -54,9 +54,12 @@ set encoding=utf8
 set termguicolors
 
 lua << END
-require('lualine').setup {
-  options = {
-    theme = 'tokyonight'
+require('lualine').setup{
+  options={
+    theme='tokyonight',
+    icons_enabled=false,
+    section_separators='',
+    component_separators='',
   }
 }
 END
@@ -211,11 +214,17 @@ vmap <leader>c <Plug>NERDCommenterToggle<CR>gv
 " => Buffer line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua << END
-require("bufferline").setup{}
+require("bufferline").setup{
+  options={
+     show_buffer_icons=false,
+     buffer_close_icon='x',
+  }
+}
 END
 
 nmap <C-Left>  :BufferLineCyclePrev<CR>
 nmap <C-Right> :BufferLineCycleNext<CR>
+nmap <leader>x :bp <BAR> bd #<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
