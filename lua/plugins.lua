@@ -1,7 +1,7 @@
 -------------------
 -- vim-plug
 -------------------
-vim.cmd([[
+vim.cmd[[
 call plug#begin(stdpath('config').'/plugged')
 Plug 'https://hub.fastgit.xyz/scrooloose/nerdtree'
 Plug 'https://hub.fastgit.xyz/easymotion/vim-easymotion'
@@ -13,30 +13,41 @@ Plug 'https://hub.fastgit.xyz/octol/vim-cpp-enhanced-highlight'
 Plug 'https://hub.fastgit.xyz/sheerun/vim-polyglot'
 Plug 'https://hub.fastgit.xyz/airblade/vim-gitgutter'
 Plug 'https://hub.fastgit.xyz/preservim/nerdcommenter'
-Plug 'https://hub.fastgit.xyz/kyazdani42/nvim-web-devicons'
 Plug 'https://hub.fastgit.xyz/nvim-lualine/lualine.nvim'
 Plug 'https://hub.fastgit.xyz/akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'https://hub.fastgit.xyz/folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
-]])
+]]
+
+-------------------
+-- tokyonight
+-------------------
+vim.g.tokyonight_style = "storm"
+vim.g.tokyonight_italic_keywords = 0
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+vim.cmd[[colorscheme tokyonight]]
 
 -------------------
 -- lualine
 -------------------
-require('lualine').setup{
-  options={
-    theme='tokyonight',
-    icons_enabled=false,
-    section_separators='',
-    component_separators='',
-  }
+require('lualine').setup {
+    options = {
+        theme = 'tokyonight',
+        icons_enabled = false,
+        section_separators = '',
+        component_separators = '',
+    }
 }
 
-vim.g.tokyonight_style = "storm"
-vim.g.tokyonight_italic_functions = 0
-vim.g.tokyonight_sidebars = {"qf", "vista_kind", "terminal", "packer"}
-
-vim.cmd("colorscheme tokyonight")
+-------------------
+-- bufferline
+-------------------
+require("bufferline").setup {
+    options = {
+        show_buffer_icons = false,
+        buffer_close_icon = 'x',
+    }
+}
 
 -------------------
 -- nerdcommenter
@@ -44,16 +55,6 @@ vim.cmd("colorscheme tokyonight")
 vim.g.NERDCreateDefaultMappings = 0 -- dont't create mappings
 vim.g.NERDSpaceDelims = 1 -- add spaces after comment delimiters by default
 vim.g.NERDDefaultAlign = 'left' -- align line-wise comment delimiters flush left instead of following code indentation
-
--------------------
--- bufferline
--------------------
-require("bufferline").setup{
-  options={
-    show_buffer_icons=false,
-    buffer_close_icon='x',
-  }
-}
 
 -------------------
 -- vim-gitgutter
@@ -64,7 +65,7 @@ vim.g.gitgutter_preview_win_floating = 1 -- use floating/popup windows for hunk 
 -------------------
 -- coc
 -------------------
-vim.cmd([[
+vim.cmd[[
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -79,4 +80,4 @@ function! ShowDocumentation()
   endif
 endfunction
 
-]])
+]]

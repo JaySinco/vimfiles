@@ -65,7 +65,7 @@ vim.o.swapfile = false
 -------------------
 -- others
 -------------------
-vim.cmd([[
+vim.cmd[[
   au FocusGained,BufEnter * checktime
   command! BufOnly silent! execute "%bd|e#|bd#"
-]])
+]]
