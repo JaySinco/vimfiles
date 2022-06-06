@@ -1,5 +1,5 @@
 -------------------
--- plug
+-- vim-plug
 -------------------
 vim.cmd([[
 call plug#begin(stdpath('config').'/plugged')
@@ -39,6 +39,13 @@ vim.g.tokyonight_sidebars = {"qf", "vista_kind", "terminal", "packer"}
 vim.cmd("colorscheme tokyonight")
 
 -------------------
+-- nerdcommenter
+-------------------
+vim.g.NERDCreateDefaultMappings = 0 -- dont't create mappings
+vim.g.NERDSpaceDelims = 1 -- add spaces after comment delimiters by default
+vim.g.NERDDefaultAlign = 'left' -- align line-wise comment delimiters flush left instead of following code indentation
+
+-------------------
 -- bufferline
 -------------------
 require("bufferline").setup{
@@ -53,3 +60,23 @@ require("bufferline").setup{
 -------------------
 vim.g.gitgutter_map_keys = 0 -- don't want vim-gitgutter to set up any mappings at all
 vim.g.gitgutter_preview_win_floating = 1 -- use floating/popup windows for hunk previews
+
+-------------------
+-- coc
+-------------------
+vim.cmd([[
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+]])
