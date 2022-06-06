@@ -16,6 +16,7 @@ Plug 'https://hub.fastgit.xyz/junegunn/fzf'
 Plug 'https://hub.fastgit.xyz/junegunn/fzf.vim'
 Plug 'https://hub.fastgit.xyz/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://hub.fastgit.xyz/sheerun/vim-polyglot'
+Plug 'https://hub.fastgit.xyz/akinsho/toggleterm.nvim', { 'tag': 'v1.*' }
 call plug#end()
 ]]
 
@@ -41,6 +42,11 @@ require('neogit').setup {}
 -- gitsigns
 -------------------
 require('gitsigns').setup {}
+
+-------------------
+-- toggleterm
+-------------------
+require("toggleterm").setup {}
 
 -------------------
 -- lualine
