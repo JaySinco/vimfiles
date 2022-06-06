@@ -51,25 +51,16 @@ require("toggleterm").setup {}
 -------------------
 -- lualine
 -------------------
-local lualine_opt = {
-  theme = 'tokyonight',
+require('lualine').setup {
+  options = {
+    theme = 'tokyonight',
+  }
 }
-if not hasGui() then
-  lualine_opt.icons_enabled = false
-  lualine_opt.section_separators = ''
-  lualine_opt.component_separators = ''
-end
-require('lualine').setup { options = lualine_opt }
 
 -------------------
 -- bufferline
 -------------------
-local bufferline_opt = {}
-if not hasGui() then
-  bufferline_opt.show_buffer_icons = false
-  bufferline_opt.buffer_close_icon = 'x'
-end
-require("bufferline").setup { options = bufferline_opt }
+require("bufferline").setup {}
 
 -------------------
 -- nerdcommenter
