@@ -26,10 +26,10 @@ nmap('<C-Left>' , ':BufferLineCyclePrev<CR>')
 nmap('<C-Right>', ':BufferLineCycleNext<CR>')
 
 nmap('<leader>p', ':GFiles<CR>')
-nmap('<leader>t', ':NERDTreeToggle<CR>')
-nmap('<leader>n', ':NERDTreeFind<CR>')
+nmap('<leader>t', ':NvimTreeToggle<CR>')
+nmap('<leader>n', ':NvimTreeFindFile<CR>')
 nmap('<leader>x', ':bp <BAR> bd #<CR>')
-nmap('<leader>d', '<Plug>(GitGutterPreviewHunk)')
+nmap('<leader>d', '<cmd>Gitsigns preview_hunk<CR>')
 nmap('<leader>c', '<Plug>NERDCommenterToggle')
 vmap('<leader>c', '<Plug>NERDCommenterToggle<CR>gv')
 
