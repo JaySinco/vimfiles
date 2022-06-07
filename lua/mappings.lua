@@ -31,6 +31,7 @@ nmap('<leader>t', ':NvimTreeToggle<CR>')
 nmap('<leader>n', ':NvimTreeFindFile<CR>')
 nmap('<leader>x', ':bp <BAR> bd #<CR>')
 nmap('<leader>d', '<cmd>Gitsigns preview_hunk<CR>')
+nmap('<leader>e', '<Cmd>exe v:count1 . "ToggleTerm"<CR>')
 nmap('<leader>c', '<Plug>NERDCommenterToggle')
 vmap('<leader>c', '<Plug>NERDCommenterToggle<CR>gv')
 
