@@ -31,7 +31,13 @@ vim.cmd[[colorscheme tokyonight]]
 -------------------
 -- nvim-tree
 -------------------
-require('nvim-tree').setup {}
+require('nvim-tree').setup {
+    open_on_setup = true,
+    open_on_setup_file = true,
+    view = {
+        side = 'right'
+    }
+}
 
 -------------------
 -- neogit
