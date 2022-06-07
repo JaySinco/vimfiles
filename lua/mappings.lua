@@ -26,6 +26,7 @@ nmap('<C-Left>' , ':BufferLineCyclePrev<CR>')
 nmap('<C-Right>', ':BufferLineCycleNext<CR>')
 
 nmap('<leader>p', ':GFiles<CR>')
+nmap('<leader>g', ':Neogit<CR>')
 nmap('<leader>t', ':NvimTreeToggle<CR>')
 nmap('<leader>n', ':NvimTreeFindFile<CR>')
 nmap('<leader>x', ':bp <BAR> bd #<CR>')
