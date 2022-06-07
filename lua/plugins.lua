@@ -14,11 +14,24 @@ Plug 'https://hub.fastgit.xyz/TimUntersberger/neogit'
 Plug 'https://hub.fastgit.xyz/preservim/nerdcommenter'
 Plug 'https://hub.fastgit.xyz/junegunn/fzf'
 Plug 'https://hub.fastgit.xyz/junegunn/fzf.vim'
-Plug 'https://hub.fastgit.xyz/neoclide/coc.nvim', {'branch': 'release'}
-Plug 'https://hub.fastgit.xyz/sheerun/vim-polyglot'
 Plug 'https://hub.fastgit.xyz/akinsho/toggleterm.nvim', { 'tag': 'v1.*' }
+Plug 'https://hub.fastgit.xyz/folke/trouble.nvim'
+Plug 'https://hub.fastgit.xyz/neovim/nvim-lspconfig'
 call plug#end()
 ]]
+-------------------
+-- basic
+-------------------
+require('gitsigns').setup {}
+require("toggleterm").setup {}
+require("bufferline").setup {}
+require('neogit').setup {}
+require('trouble').setup {}
+
+-------------------
+-- lsp 
+-------------------
+require('lspconfig').clangd.setup{}
 
 -------------------
 -- tokyonight
@@ -27,6 +40,15 @@ vim.g.tokyonight_style = "storm"
 vim.g.tokyonight_italic_keywords = 0
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 vim.cmd[[colorscheme tokyonight]]
+
+-------------------
+-- lualine
+-------------------
+require('lualine').setup {
+  options = {
+    theme = 'tokyonight',
+  }
+}
 
 -------------------
 -- nvim-tree
@@ -40,57 +62,9 @@ require('nvim-tree').setup {
 }
 
 -------------------
--- neogit
--------------------
-require('neogit').setup {}
-
--------------------
--- gitsigns
--------------------
-require('gitsigns').setup {}
-
--------------------
--- toggleterm
--------------------
-require("toggleterm").setup {}
-
--------------------
--- lualine
--------------------
-require('lualine').setup {
-  options = {
-    theme = 'tokyonight',
-  }
-}
-
--------------------
--- bufferline
--------------------
-require("bufferline").setup {}
-
--------------------
 -- nerdcommenter
 -------------------
 vim.g.NERDCreateDefaultMappings = 0 -- dont't create mappings
 vim.g.NERDSpaceDelims = 1 -- add spaces after comment delimiters by default
 vim.g.NERDDefaultAlign = 'left' -- align line-wise comment delimiters flush left instead of following code indentation
 
--------------------
--- coc
--------------------
-vim.cmd[[
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-]]
