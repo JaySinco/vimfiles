@@ -46,7 +46,7 @@ packer.startup({
                 open_on_setup = true,
                 open_on_setup_file = true,
                 view = {
-                    side = 'right'
+                    side = 'left'
                 }
             }
         end }
