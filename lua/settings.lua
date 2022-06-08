@@ -14,27 +14,27 @@ vim.o.autoread = true -- set to auto read when a file is changed from the outsid
 -- user interface
 -------------------
 vim.o.termguicolors = true
-vim.o.lazyredraw = true -- don't redraw while executing macros (good performance config)
-vim.o.mouse = 'a'
-vim.o.number = true
-vim.o.cursorline = true
-vim.o.showmatch  = true -- show matching brackets
-vim.o.scrolloff = 3 -- always show rows from edge of the screen
-vim.o.synmaxcol = 300 -- stop syntax highlight after x lines for performance
-vim.o.wildmenu = true -- turn on the wild menu
-vim.o.cmdheight = 2 -- height of the command bar
-vim.o.laststatus = 2 -- always show status line
-vim.o.list = false -- do not display white characters
-vim.o.wrap = false --do not wrap lines even if very long
-vim.o.eol = false -- show if there's no eol char
-vim.o.matchtime = 2 -- how many tenths of a second to blink when matching brackets
-vim.o.showbreak = '↪' -- character to show when line is broken
-vim.o.linebreak = true -- linebreak characters
-vim.o.textwidth = 500
-vim.o.hidden = true -- opening a new file when the current buffer has unsaved changes, causes files to be hidden instead of closed
-vim.o.errorbells = false -- no annoying sound on errors
-vim.o.foldcolumn = '1' -- add a bit extra margin to the left
-vim.o.signcolumn = 'number' -- always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved
+vim.o.lazyredraw    = true -- don't redraw while executing macros (good performance config)
+vim.o.mouse         = 'a'
+vim.o.number        = true
+vim.o.cursorline    = true
+vim.o.showmatch     = true -- show matching brackets
+vim.o.scrolloff     = 3 -- always show rows from edge of the screen
+vim.o.synmaxcol     = 300 -- stop syntax highlight after x lines for performance
+vim.o.wildmenu      = true -- turn on the wild menu
+vim.o.cmdheight     = 2 -- height of the command bar
+vim.o.laststatus    = 2 -- always show status line
+vim.o.list          = false -- do not display white characters
+vim.o.wrap          = false --do not wrap lines even if very long
+vim.o.eol           = false -- show if there's no eol char
+vim.o.matchtime     = 2 -- how many tenths of a second to blink when matching brackets
+vim.o.showbreak     = '↪' -- character to show when line is broken
+vim.o.linebreak     = true -- linebreak characters
+vim.o.textwidth     = 500
+vim.o.hidden        = true -- opening a new file when the current buffer has unsaved changes, causes files to be hidden instead of closed
+vim.o.errorbells    = false -- no annoying sound on errors
+vim.o.foldcolumn    = '1' -- add a bit extra margin to the left
+vim.o.signcolumn    = 'number' -- always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved
 
 -------------------
 -- search
@@ -65,7 +65,8 @@ vim.o.swapfile = false
 -------------------
 -- others
 -------------------
-vim.cmd[[
-  au FocusGained,BufEnter * checktime
-  command! BufOnly silent! execute "%bd|e#|bd#"
+vim.cmd [[
+    command! BufOnly silent! execute "%bd|e#|bd#"
+    autocmd FocusGained,BufEnter * checktime
+    autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 ]]
