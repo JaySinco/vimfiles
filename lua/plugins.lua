@@ -20,6 +20,7 @@ packer.startup({
         use 'hrsh7th/cmp-nvim-lsp'
         use 'saadparwaiz1/cmp_luasnip'
         use 'L3MON4D3/LuaSnip'
+        use 'simrat39/symbols-outline.nvim'
 
         use { 'folke/tokyonight.nvim', config = function()
             vim.g.tokyonight_style = "storm"

@@ -16,6 +16,7 @@ vim.keymap.set('n', '<leader>d', '<cmd>Gitsigns preview_hunk<CR>', opts)
 vim.keymap.set('n', '<leader>e', '<Cmd>exe v:count1 . "ToggleTerm"<CR>', opts)
 vim.keymap.set('n', '<leader>c', '<Plug>NERDCommenterToggle', opts)
 vim.keymap.set('v', '<leader>c', '<Plug>NERDCommenterToggle<CR>gv', opts)
+vim.keymap.set('n', '<leader>o', ':SymbolsOutline<CR>', opts)
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
