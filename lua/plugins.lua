@@ -15,6 +15,11 @@ packer.startup({
         use 'kyazdani42/nvim-web-devicons'
         use 'junegunn/fzf'
         use 'junegunn/fzf.vim'
+        use 'neovim/nvim-lspconfig'
+        use 'hrsh7th/nvim-cmp'
+        use 'hrsh7th/cmp-nvim-lsp'
+        use 'saadparwaiz1/cmp_luasnip'
+        use 'L3MON4D3/LuaSnip'
 
         use { 'folke/tokyonight.nvim', config = function()
             vim.g.tokyonight_style = "storm"
@@ -67,28 +72,6 @@ packer.startup({
             require("toggleterm").setup()
         end }
 
-        use { 'neovim/nvim-lspconfig', config = function()
-            require('lspconfig').clangd.setup {}
-            require('lspconfig').tsserver.setup {}
-            require('lspconfig').sumneko_lua.setup {
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = 'LuaJIT',
-                        },
-                        diagnostics = {
-                            globals = { 'vim' },
-                        },
-                        workspace = {
-                            library = vim.api.nvim_get_runtime_file("", true),
-                        },
-                        telemetry = {
-                            enable = false,
-                        },
-                    },
-                },
-            }
-        end }
     end,
 
     config = {
@@ -99,8 +82,5 @@ packer.startup({
 })
 
 vim.cmd([[
-    augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-    augroup end
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 ]])

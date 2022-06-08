@@ -19,10 +19,9 @@ vim.keymap.set('v', '<leader>c', '<Plug>NERDCommenterToggle<CR>gv', opts)
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
+vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
 vim.keymap.set('n', 'gc', vim.lsp.buf.declaration, opts)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-vim.keymap.set("n", "gr", "<cmd>Trouble lsp_references<cr>", opts)
-vim.keymap.set("n", "ga", "<cmd>Trouble document_diagnostics<cr>", opts)
 
--- imap('<TAB>', [[pumvisible() ? "\<C-n>" : CheckBackspace() ? "\<TAB>" : coc#refresh()]], true)
+vim.keymap.set("n", "<space>r", "<cmd>Trouble lsp_references<cr>", opts)
+vim.keymap.set("n", "<space>a", "<cmd>Trouble document_diagnostics<cr>", opts)

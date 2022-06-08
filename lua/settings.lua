@@ -89,5 +89,4 @@ vim.diagnostic.config({
 vim.cmd [[
     command! BufOnly silent! execute "%bd|e#|bd#"
     autocmd FocusGained,BufEnter * checktime
-    autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 ]]
