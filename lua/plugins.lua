@@ -24,9 +24,9 @@ packer.startup({
         end }
 
         use { 'preservim/nerdcommenter', config = function()
-            vim.g.NERDCreateDefaultMappings = 0 -- dont't create mappings
-            vim.g.NERDSpaceDelims = 1 -- add spaces after comment delimiters by default
-            vim.g.NERDDefaultAlign = 'left' -- align line-wise comment delimiters flush left instead of following code indentation
+            vim.g.NERDCreateDefaultMappings = 0
+            vim.g.NERDSpaceDelims = 1
+            vim.g.NERDDefaultAlign = 'left'
         end }
 
         use { 'kyazdani42/nvim-tree.lua', config = function()
@@ -69,23 +69,19 @@ packer.startup({
 
         use { 'neovim/nvim-lspconfig', config = function()
             require('lspconfig').clangd.setup {}
-
+            require('lspconfig').tsserver.setup {}
             require('lspconfig').sumneko_lua.setup {
                 settings = {
                     Lua = {
                         runtime = {
-                            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                             version = 'LuaJIT',
                         },
                         diagnostics = {
-                            -- Get the language server to recognize the `vim` global
                             globals = { 'vim' },
                         },
                         workspace = {
-                            -- Make the server aware of Neovim runtime files
                             library = vim.api.nvim_get_runtime_file("", true),
                         },
-                        -- Do not send telemetry data containing a randomized but unique identifier
                         telemetry = {
                             enable = false,
                         },
