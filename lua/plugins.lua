@@ -21,70 +21,107 @@ packer.startup({
         use 'saadparwaiz1/cmp_luasnip'
         use 'L3MON4D3/LuaSnip'
 
-        use { 'simrat39/symbols-outline.nvim', config = function()
-            vim.g.symbols_outline = {
-                highlight_hover_item = false,
-                auto_preview = false,
-            }
-        end }
-
-        use { 'folke/tokyonight.nvim', config = function()
-            vim.g.tokyonight_style = "storm"
-            vim.g.tokyonight_italic_keywords = 0
-            vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-            vim.cmd [[colorscheme tokyonight]]
-        end }
-
-        use { 'preservim/nerdcommenter', config = function()
-            vim.g.NERDCreateDefaultMappings = 0
-            vim.g.NERDSpaceDelims = 1
-            vim.g.NERDDefaultAlign = 'left'
-        end }
-
-        use { 'kyazdani42/nvim-tree.lua', config = function()
-            require('nvim-tree').setup {
-                open_on_setup = true,
-                open_on_setup_file = true,
-                view = {
-                    side = 'left'
+        use { 'simrat39/symbols-outline.nvim',
+            config = function()
+                vim.g.symbols_outline = {
+                    highlight_hover_item = false,
+                    auto_preview = false,
                 }
-            }
-        end }
+            end
+        }
 
-        use { 'nvim-lualine/lualine.nvim', config = function()
-            require('lualine').setup {
-                options = {
-                    theme = 'tokyonight',
+        use { 'folke/tokyonight.nvim',
+            config = function()
+                vim.g.tokyonight_style = "storm"
+                vim.g.tokyonight_italic_keywords = 0
+                vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+                vim.cmd [[colorscheme tokyonight]]
+            end
+        }
+
+        use { 'preservim/nerdcommenter',
+            config = function()
+                vim.g.NERDCreateDefaultMappings = 0
+                vim.g.NERDSpaceDelims = 1
+                vim.g.NERDDefaultAlign = 'left'
+            end
+        }
+
+        use { 'kyazdani42/nvim-tree.lua',
+            config = function()
+                require('nvim-tree').setup {
+                    open_on_setup = true,
+                    open_on_setup_file = true,
+                    view = {
+                        side = 'left'
+                    }
                 }
-            }
-        end }
+            end
+        }
 
-        use { 'lewis6991/gitsigns.nvim', config = function()
-            require('gitsigns').setup {}
-        end }
+        use { 'nvim-lualine/lualine.nvim',
+            config = function()
+                require('lualine').setup {
+                    options = {
+                        theme = 'tokyonight',
+                    }
+                }
+            end
+        }
 
-        use { 'TimUntersberger/neogit', config = function()
-            require('neogit').setup {}
-        end }
+        use { 'lewis6991/gitsigns.nvim',
+            config = function()
+                require('gitsigns').setup {}
+            end
+        }
 
-        use { 'folke/trouble.nvim', config = function()
-            require('trouble').setup {}
-        end }
+        use { 'TimUntersberger/neogit',
+            config = function()
+                require('neogit').setup {}
+            end
+        }
 
-        use { 'akinsho/bufferline.nvim', tag = "v2.*", config = function()
-            require("bufferline").setup()
-        end }
+        use { 'folke/trouble.nvim',
+            config = function()
+                require('trouble').setup {}
+            end
+        }
 
-        use { "akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
-            require("toggleterm").setup()
-        end }
+        use { 'akinsho/bufferline.nvim',
+            tag = "v2.*",
+            config = function()
+                require("bufferline").setup()
+            end
+        }
 
-        use { "lukas-reineke/indent-blankline.nvim", config = function()
-            require("indent_blankline").setup {
-                -- show_current_context = true,
-                -- show_current_context_start = true,
-            }
-        end }
+        use { "akinsho/toggleterm.nvim",
+            tag = 'v1.*',
+            config = function()
+                require("toggleterm").setup()
+            end
+        }
+
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
+            config = function()
+                require('nvim-treesitter.configs').setup {
+                    highlight = {
+                        enable = true,
+                        additional_vim_regex_highlighting = false,
+                    },
+                }
+            end
+        }
+
+        use { "lukas-reineke/indent-blankline.nvim",
+            config = function()
+                require("indent_blankline").setup {
+                    show_current_context = true,
+                    show_current_context_start = false,
+                }
+            end
+        }
 
     end,
 
