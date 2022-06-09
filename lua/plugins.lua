@@ -11,7 +11,7 @@ local packer = require('packer')
 packer.startup({
     function(use)
         use 'wbthomason/packer.nvim'
-        use 'nvim-lua/plenary.nvim'
+        use 'nvim-lua/plenary.nvim' -- lua functions I don't want to write twice
         use 'kyazdani42/nvim-web-devicons'
         use 'junegunn/fzf'
         use 'junegunn/fzf.vim'
@@ -77,6 +77,13 @@ packer.startup({
 
         use { "akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
             require("toggleterm").setup()
+        end }
+
+        use { "lukas-reineke/indent-blankline.nvim", config = function()
+            require("indent_blankline").setup {
+                -- show_current_context = true,
+                -- show_current_context_start = true,
+            }
         end }
 
     end,
