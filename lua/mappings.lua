@@ -6,7 +6,13 @@ vim.keymap.set('n', '""', ':registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<C
 
 vim.keymap.set('n', '<C-Left>', ':BufferLineCyclePrev<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':BufferLineCycleNext<CR>', opts)
-vim.keymap.set('n', '<C-p>', ':GFiles<CR>', opts)
+
+vim.keymap.set('n', '<C-p>', function()
+    require('telescope.builtin').find_files({
+        find_command = { "rg", "--hidden", "--files", "--glob", "!.git" }
+    })
+end, opts)
+
 vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('n', '<C-`>', '<Cmd>exe v:count1 . "ToggleTerm"<CR>', opts)
 vim.keymap.set('t', '<C-`>', [[<C-\><C-n>]], opts)
@@ -20,8 +26,8 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
 vim.keymap.set('n', 'gc', vim.lsp.buf.declaration, opts)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-vim.keymap.set("n", 'gr', '<Cmd>Trouble lsp_references<cr>', opts)
+vim.keymap.set("n", 'gr', ':Trouble lsp_references<CR>', opts)
 
 vim.keymap.set('n', '<space>g', ':Neogit<CR>', opts)
 vim.keymap.set('n', '<space>o', ':SymbolsOutline<CR>', opts)
-vim.keymap.set("n", '<space>a', '<Cmd>Trouble document_diagnostics<CR>', opts)
+vim.keymap.set("n", '<space>a', ':Trouble document_diagnostics<CR>', opts)

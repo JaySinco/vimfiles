@@ -13,22 +13,11 @@ packer.startup({
         use 'wbthomason/packer.nvim'
         use 'nvim-lua/plenary.nvim' -- lua functions I don't want to write twice
         use 'kyazdani42/nvim-web-devicons'
-        use 'junegunn/fzf'
-        use 'junegunn/fzf.vim'
         use 'neovim/nvim-lspconfig'
         use 'hrsh7th/nvim-cmp'
         use 'hrsh7th/cmp-nvim-lsp'
         use 'saadparwaiz1/cmp_luasnip'
         use 'L3MON4D3/LuaSnip'
-
-        use { 'simrat39/symbols-outline.nvim',
-            config = function()
-                vim.g.symbols_outline = {
-                    highlight_hover_item = false,
-                    auto_preview = false,
-                }
-            end
-        }
 
         use { 'folke/tokyonight.nvim',
             config = function()
@@ -36,6 +25,15 @@ packer.startup({
                 vim.g.tokyonight_italic_keywords = 0
                 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
                 vim.cmd [[colorscheme tokyonight]]
+            end
+        }
+
+        use { 'simrat39/symbols-outline.nvim',
+            config = function()
+                vim.g.symbols_outline = {
+                    highlight_hover_item = false,
+                    auto_preview = false,
+                }
             end
         }
 
@@ -90,14 +88,20 @@ packer.startup({
         use { 'akinsho/bufferline.nvim',
             tag = "v2.*",
             config = function()
-                require("bufferline").setup()
+                require("bufferline").setup {}
             end
         }
 
         use { "akinsho/toggleterm.nvim",
             tag = 'v1.*',
             config = function()
-                require("toggleterm").setup()
+                require("toggleterm").setup {}
+            end
+        }
+
+        use { "nvim-telescope/telescope.nvim",
+            config = function()
+                require("telescope").setup {}
             end
         }
 
