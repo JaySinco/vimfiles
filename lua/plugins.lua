@@ -101,7 +101,13 @@ packer.startup({
 
         use { "nvim-telescope/telescope.nvim",
             config = function()
-                require("telescope").setup {}
+                require("telescope").setup {
+                    pickers = {
+                        git_files = {
+                            theme = "dropdown",
+                        }
+                    },
+                }
             end
         }
 

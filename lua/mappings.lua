@@ -6,12 +6,7 @@ vim.keymap.set('n', '""', ':registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<C
 
 vim.keymap.set('n', '<C-Left>', ':BufferLineCyclePrev<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':BufferLineCycleNext<CR>', opts)
-
-vim.keymap.set('n', '<C-p>', function()
-    require('telescope.builtin').find_files({
-        find_command = { "rg", "--hidden", "--files", "--glob", "!.git" }
-    })
-end, opts)
+vim.keymap.set('n', '<C-p>', function() require 'telescope.builtin'.git_files {} end, opts)
 
 vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('n', '<C-`>', '<Cmd>exe v:count1 . "ToggleTerm"<CR>', opts)
