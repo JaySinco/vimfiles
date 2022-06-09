@@ -8,6 +8,7 @@ vim.keymap.set('n', '<C-Left>', ':BufferLineCyclePrev<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':BufferLineCycleNext<CR>', opts)
 
 vim.keymap.set('n', '<leader>x', ':bp <BAR> bd #<CR>', opts)
+vim.keymap.set('n', '<leader>f', ':NvimTreeFindFile<CR>', opts)
 vim.keymap.set('n', '<leader>c', '<Plug>NERDCommenterToggle', opts)
 vim.keymap.set('v', '<leader>c', '<Plug>NERDCommenterToggle<CR>gv', opts)
 
@@ -19,7 +20,6 @@ vim.keymap.set("n", 'gr', ':Trouble lsp_references<CR>', opts)
 
 vim.keymap.set('n', '<space>p', function() require 'telescope.builtin'.git_files {} end, opts)
 vim.keymap.set('n', '<space>b', ':NvimTreeToggle<CR>', opts)
-vim.keymap.set('n', '<space>f', ':NvimTreeFindFile<CR>', opts)
 vim.keymap.set('n', '<space>g', ':Neogit<CR>', opts)
 vim.keymap.set('n', '<space>o', ':SymbolsOutline<CR>', opts)
 vim.keymap.set("n", '<space>a', ':Trouble document_diagnostics<CR>', opts)
