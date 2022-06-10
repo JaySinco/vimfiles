@@ -14,6 +14,7 @@ vim.o.splitright = true
 -------------------
 -- user interface
 -------------------
+vim.o.guifont       = "FiraCode NF:h11"
 vim.o.termguicolors = true
 vim.o.lazyredraw    = true -- don't redraw while executing macros (good performance config)
 vim.o.mouse         = 'a'
