@@ -10,11 +10,12 @@ vim.o.backspace = "indent,eol,start" -- backspace works on every char in insert 
 vim.o.clipboard = "unnamedplus" -- yanking/deleting operations copy to the system clipboard
 vim.o.autoread = true -- set to auto read when a file is changed from the outside
 vim.o.splitright = true
+vim.g.neovide_cursor_animation_length = 0
 
 -------------------
 -- user interface
 -------------------
-vim.o.guifont       = "FiraCode NF:h11"
+vim.o.guifont       = "FiraMono NF:h11"
 vim.o.termguicolors = true
 vim.o.lazyredraw    = true -- don't redraw while executing macros (good performance config)
 vim.o.mouse         = 'a'
