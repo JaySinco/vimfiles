@@ -7,7 +7,7 @@ vim.o.history = 500
 vim.o.updatetime = 300 -- updatetime (default is 4000 ms = 4 s)
 vim.o.timeoutlen = 500
 vim.o.backspace = "indent,eol,start" -- backspace works on every char in insert mode
-vim.o.clipboard = "unnamedplus" -- yanking/deleting operations copy to the system clipboard
+-- vim.o.clipboard = "unnamedplus" -- yanking/deleting operations copy to the system clipboard
 vim.o.autoread = true -- set to auto read when a file is changed from the outside
 vim.o.splitright = true
 vim.g.neovide_cursor_animation_length = 0
