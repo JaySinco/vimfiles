@@ -19,12 +19,18 @@ packer.startup({
         use 'saadparwaiz1/cmp_luasnip'
         use 'L3MON4D3/LuaSnip'
 
-        use { 'folke/tokyonight.nvim',
+        use { 'catppuccin/nvim', as = 'catppuccin',
             config = function()
-                vim.g.tokyonight_style = "storm"
-                vim.g.tokyonight_italic_keywords = 0
-                vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-                vim.cmd [[colorscheme tokyonight]]
+                vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
+                vim.cmd [[colorscheme catppuccin]]
+            end
+        }
+
+        use { 'feline-nvim/feline.nvim',
+            config = function()
+                require('feline').setup {
+                    components = require('catppuccin.core.integrations.feline'),
+                }
             end
         }
 
@@ -52,16 +58,6 @@ packer.startup({
                     open_on_setup_file = true,
                     view = {
                         side = 'left'
-                    }
-                }
-            end
-        }
-
-        use { 'nvim-lualine/lualine.nvim',
-            config = function()
-                require('lualine').setup {
-                    options = {
-                        theme = 'tokyonight',
                     }
                 }
             end
