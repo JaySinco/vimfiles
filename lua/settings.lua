@@ -35,13 +35,12 @@ vim.o.list          = false -- do not display white characters
 vim.o.wrap          = false --do not wrap lines even if very long
 vim.o.eol           = false -- show if there's no eol char
 vim.o.matchtime     = 2 -- how many tenths of a second to blink when matching brackets
-vim.o.showbreak     = '↪' -- character to show when line is broken
-vim.o.linebreak     = true -- linebreak characters
 vim.o.textwidth     = 500
 vim.o.hidden        = true -- opening a new file when the current buffer has unsaved changes, causes files to be hidden instead of closed
 vim.o.errorbells    = false -- no annoying sound on errors
 vim.o.foldcolumn    = '1' -- add a bit extra margin to the left
 vim.o.signcolumn    = 'number' -- always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved
+vim.o.foldlevel     = 99
 
 -------------------
 -- search
