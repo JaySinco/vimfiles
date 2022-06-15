@@ -35,7 +35,6 @@ packer.startup({
                                 information = "NONE",
                             },
                         },
-                        gitgutter = true,
                         nvimtree = {
                             enabled = true,
                             show_root = false,
@@ -92,6 +91,13 @@ packer.startup({
             end
         }
 
+        use { 'rcarriga/nvim-notify',
+            config = function()
+                require('notify').setup {}
+                vim.notify = require 'notify'
+            end
+        }
+
         use { 'simrat39/symbols-outline.nvim',
             config = function()
                 vim.g.symbols_outline = {
@@ -130,6 +136,7 @@ packer.startup({
         use { 'TimUntersberger/neogit',
             config = function()
                 require('neogit').setup {
+                    disable_builtin_notifications = true,
                     integrations = {
                         diffview = true,
                     }
