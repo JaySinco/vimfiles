@@ -6,6 +6,8 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
 
 vim.keymap.set('n', '<C-Left>', ':BufferLineCyclePrev<cr>', opts)
 vim.keymap.set('n', '<C-Right>', ':BufferLineCycleNext<cr>', opts)
+vim.keymap.set('n', '<M-Left>', ':tabprevious<cr>', opts)
+vim.keymap.set('n', '<M-Right>', ':tabnext<cr>', opts)
 
 vim.keymap.set('n', '<leader>w', ':w!<cr>', opts)
 vim.keymap.set('n', '<leader><cr>', ':nohlsearch<cr>', opts)

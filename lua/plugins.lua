@@ -12,6 +12,7 @@ packer.startup({
     function(use)
         use 'wbthomason/packer.nvim'
         use 'nvim-lua/plenary.nvim' -- lua functions I don't want to write twice
+        use 'sindrets/diffview.nvim'
         use 'kyazdani42/nvim-web-devicons'
         use 'neovim/nvim-lspconfig'
         use 'hrsh7th/nvim-cmp'
@@ -128,7 +129,11 @@ packer.startup({
 
         use { 'TimUntersberger/neogit',
             config = function()
-                require('neogit').setup {}
+                require('neogit').setup {
+                    integrations = {
+                        diffview = true,
+                    }
+                }
             end
         }
 
