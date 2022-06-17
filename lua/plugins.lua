@@ -20,73 +20,27 @@ packer.startup({
         use 'saadparwaiz1/cmp_luasnip'
         use 'L3MON4D3/LuaSnip'
 
-        use { 'catppuccin/nvim', as = 'catppuccin',
+        use { 'sainnhe/gruvbox-material',
             config = function()
-                vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
-                local cat = require("catppuccin")
-                cat.setup {
-                    integrations = {
-                        native_lsp = {
-                            enabled = true,
-                            virtual_text = {
-                                errors = "NONE",
-                                hints = "NONE",
-                                warnings = "NONE",
-                                information = "NONE",
-                            },
-                        },
-                        nvimtree = {
-                            enabled = true,
-                            show_root = false,
-                            transparent_panel = true,
-                        },
-                        neogit = true,
-                    }
-                }
-                local cp = require 'catppuccin.api.colors'.get_colors()
-                cat.remap {
-                    ErrorMsg = { fg = cp.red, style = "NONE" },
-                    TSProperty = { fg = cp.yellow, style = "NONE" },
-                    TSInclude = { fg = cp.teal, style = "NONE" },
-                    TSOperator = { fg = cp.sky, style = "NONE" },
-                    TSKeywordOperator = { fg = cp.sky, style = "NONE" },
-                    TSPunctSpecial = { fg = cp.maroon, style = "NONE" },
-                    TSFloat = { fg = cp.peach, style = "NONE" },
-                    TSNumber = { fg = cp.peach, style = "NONE" },
-                    TSBoolean = { fg = cp.peach, style = "NONE" },
-                    TSConditional = { fg = cp.mauve, style = "NONE" },
-                    TSRepeat = { fg = cp.mauve, style = "NONE" },
-                    TSException = { fg = cp.peach, style = "NONE" },
-                    TSConstBuiltin = { fg = cp.lavender, style = "NONE" },
-                    TSFuncBuiltin = { fg = cp.peach, style = "NONE" },
-                    TSTypeBuiltin = { fg = cp.yellow, style = "NONE" },
-                    TSVariableBuiltin = { fg = cp.teal, style = "NONE" },
-                    TSFunction = { fg = cp.blue, style = "NONE" },
-                    TSParameter = { fg = cp.rosewater, style = "NONE" },
-                    TSKeywordFunction = { fg = cp.maroon, style = "NONE" },
-                    TSKeyword = { fg = cp.red, style = "NONE" },
-                    TSMethod = { fg = cp.blue, style = "NONE" },
-                    TSNamespace = { fg = cp.rosewater, style = "NONE" },
-                    TSStringRegex = { fg = cp.peach, style = "NONE" },
-                    TSVariable = { fg = cp.white, style = "NONE" },
-                    TSTagAttribute = { fg = cp.mauve, style = "NONE" },
-                    TSURI = { fg = cp.rosewater, style = "underline" },
-                    TSLiteral = { fg = cp.teal, style = "NONE" },
-                    TSEmphasis = { fg = cp.maroon, style = "NONE" },
-                    TSStringEscape = { fg = cp.pink, style = "NONE" },
-                    bashTSFuncBuiltin = { fg = cp.red, style = "NONE" },
-                    bashTSParameter = { fg = cp.yellow, style = "NONE" },
-                    typescriptTSProperty = { fg = cp.lavender, style = "NONE" },
-                    cssTSProperty = { fg = cp.yellow, style = "NONE" },
-                }
-                vim.cmd [[colorscheme catppuccin]]
+                vim.o.background = 'dark'
+                vim.g.gruvbox_material_background = 'medium'
+                vim.g.gruvbox_material_better_performance = true
+                vim.cmd [[colorscheme gruvbox-material]]
             end
         }
 
-        use { 'feline-nvim/feline.nvim',
+        use { 'nvim-lualine/lualine.nvim',
             config = function()
-                require('feline').setup {
-                    components = require('catppuccin.core.integrations.feline'),
+                require('lualine').setup {
+                    options = {
+                        theme = 'gruvbox-material'
+                    },
+                    extensions = {
+                        'nvim-tree',
+                        'quickfix',
+                        'symbols-outline',
+                        'toggleterm',
+                    }
                 }
             end
         }
