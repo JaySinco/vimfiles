@@ -34,5 +34,5 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 })
 
 vim.cmd [[
-    autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+    autocmd BufWritePre * lua vim.lsp.buf.format()
 ]]
