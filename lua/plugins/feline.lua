@@ -75,6 +75,7 @@ force_inactive.filetypes = {
     'fugitive',
     'fugitiveblame',
     'NeogitStatus',
+    'Trouble',
 }
 
 force_inactive.buftypes = {
@@ -271,7 +272,7 @@ components.active[3][3] = {
     right_sep = ' '
 }
 -- fileFormat
-components.active[3][5] = {
+components.active[3][4] = {
     provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
     hl = {
         fg = 'white',
@@ -281,7 +282,7 @@ components.active[3][5] = {
     right_sep = ' '
 }
 -- fileEncode
-components.active[3][6] = {
+components.active[3][5] = {
     provider = 'file_encoding',
     hl = {
         fg = 'white',
@@ -290,20 +291,8 @@ components.active[3][6] = {
     },
     right_sep = ' '
 }
--- RVMrubyVersion
--- components.active[3][7] = {
---   provider = function()
---     return ' '..vim.fn['rvm#string']()
---   end,
---   hl = {
---     fg = 'red',
---     bg = 'bg',
---     style = 'bold'
---   },
---   right_sep = ' '
--- }
 -- lineInfo
-components.active[3][8] = {
+components.active[3][6] = {
     provider = 'position',
     hl = {
         fg = 'white',
@@ -312,18 +301,8 @@ components.active[3][8] = {
     },
     right_sep = ' '
 }
--- linePercent
-components.active[3][9] = {
-    provider = 'line_percentage',
-    hl = {
-        fg = 'white',
-        bg = 'bg',
-        style = 'bold'
-    },
-    right_sep = ' '
-}
 -- scrollBar
-components.active[3][10] = {
+components.active[3][7] = {
     provider = 'scroll_bar',
     hl = {
         fg = 'yellow',
@@ -362,8 +341,6 @@ components.inactive[1][1] = {
 
 require('feline').setup({
     theme = colors,
-    -- default_bg = bg,
-    -- default_fg = fg,
     vi_mode_colors = vi_mode_colors,
     components = components,
     force_inactive = force_inactive,
