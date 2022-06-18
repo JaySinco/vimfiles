@@ -1,6 +1,6 @@
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
-local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 
 local force_inactive = {
     filetypes = {},
@@ -67,28 +67,14 @@ local vi_mode_text = {
     CONFIRM = '|>'
 }
 
-local buffer_not_empty = function()
-    if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-        return true
-    end
-    return false
-end
-
-local checkwidth = function()
-    local squeeze_width = vim.fn.winwidth(0) / 2
-    if squeeze_width > 40 then
-        return true
-    end
-    return false
-end
-
 force_inactive.filetypes = {
     'NvimTree',
     'dbui',
     'packer',
     'startify',
     'fugitive',
-    'fugitiveblame'
+    'fugitiveblame',
+    'NeogitStatus',
 }
 
 force_inactive.buftypes = {
@@ -124,7 +110,7 @@ components.active[1][2] = {
 -- filename
 components.active[1][3] = {
     provider = function()
-        return vim.fn.expand("%:F")
+        return vim.fn.expand("%:t")
     end,
     hl = {
         fg = 'white',
@@ -140,10 +126,10 @@ components.active[1][3] = {
         },
     }
 }
--- nvimGps
+-- nvimNavic
 components.active[1][4] = {
-    provider = function() return gps.get_location() end,
-    enabled = function() return gps.is_available() end,
+    provider = function() return navic.get_location() end,
+    enabled = function() return navic.is_available() end,
     hl = {
         fg = 'white',
         bg = 'bg',
@@ -282,17 +268,6 @@ components.active[3][3] = {
         val.style = 'bold'
         return val
     end,
-    right_sep = ' '
-}
--- fileSize
-components.active[3][4] = {
-    provider = 'file_size',
-    enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
-    hl = {
-        fg = 'skyblue',
-        bg = 'bg',
-        style = 'bold'
-    },
     right_sep = ' '
 }
 -- fileFormat
