@@ -76,6 +76,7 @@ force_inactive.filetypes = {
     'fugitiveblame',
     'NeogitStatus',
     'Trouble',
+    'Outline',
 }
 
 force_inactive.buftypes = {
