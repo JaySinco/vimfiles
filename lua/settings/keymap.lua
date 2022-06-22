@@ -2,7 +2,6 @@ local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 vim.keymap.set('n', '""', ':registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<cr>', opts)
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
 
 vim.keymap.set('n', '<C-Left>', ':BufferLineCyclePrev<cr>', opts)
 vim.keymap.set('n', '<C-Right>', ':BufferLineCycleNext<cr>', opts)
@@ -29,3 +28,15 @@ vim.keymap.set('n', '<space>g', ':Neogit<cr>', opts)
 vim.keymap.set('n', '<space>o', ':SymbolsOutline<cr>', opts)
 vim.keymap.set("n", '<space>a', ':Trouble document_diagnostics<cr>', opts)
 vim.keymap.set('n', '<space>m', '<Cmd>exe v:count1 . "ToggleTerm"<cr>', opts)
+vim.keymap.set('n', '<space>l', function()
+    local Terminal = require('toggleterm.terminal').Terminal
+    local lazygit  = Terminal:new({
+        cmd = "lazygit",
+        hidden = true,
+        direction = "float",
+        float_opts = {
+            border = "double",
+        },
+    })
+    lazygit:toggle()
+end, opts)
