@@ -15,7 +15,7 @@ vim.o.splitright = true
 -- neovide
 -------------------
 vim.o.guifont = "FiraMono NF:h11"
-vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_cursor_animation_length = 0.03
 
 -------------------
 -- user interface
