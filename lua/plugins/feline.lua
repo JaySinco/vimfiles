@@ -74,13 +74,10 @@ force_inactive.filetypes = {
     'startify',
     'fugitive',
     'fugitiveblame',
-    'NeogitStatus',
-    'Trouble',
-    'Outline',
 }
 
 force_inactive.buftypes = {
-    'terminal'
+    -- 'terminal'
 }
 
 -- LEFT
