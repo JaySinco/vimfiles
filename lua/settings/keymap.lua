@@ -26,6 +26,7 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 vim.keymap.set("n", 'gr', ':Trouble lsp_references<cr>', opts)
 
 vim.keymap.set('n', '<space>g', ':Neogit<cr>', opts)
+vim.keymap.set('n', '<space>s', ':Gitsigns setqflist<cr>', opts)
 vim.keymap.set('n', '<space>o', ':SymbolsOutline<cr>', opts)
 vim.keymap.set("n", '<space>a', ':Trouble document_diagnostics<cr>', opts)
 vim.keymap.set('n', '<space>m', '<Cmd>exe v:count1 . "ToggleTerm"<cr>', opts)
