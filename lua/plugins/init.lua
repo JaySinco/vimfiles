@@ -3,7 +3,7 @@ local packer_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(packer_path)) > 0 then
     vim.api.nvim_echo({ { "Installing packer.nvim", "Type" } }, true, {})
     fn.system { 'git', 'clone', '--depth', '1',
-        'https://hub.fastgit.xyz/wbthomason/packer.nvim', packer_path }
+        'https://github.com/wbthomason/packer.nvim', packer_path }
     return
 end
 
@@ -50,7 +50,7 @@ packer.startup({
 
     config = {
         git = {
-            default_url_format = 'https://hub.fastgit.xyz/%s'
+            default_url_format = 'https://github.com/%s'
         }
     }
 })
