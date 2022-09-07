@@ -41,6 +41,7 @@ vim.o.errorbells    = false -- no annoying sound on errors
 vim.o.foldcolumn    = '1' -- add a bit extra margin to the left
 vim.o.signcolumn    = 'number' -- always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved
 vim.o.foldlevel     = 99
+vim.o.title         = true
 
 -------------------
 -- search
