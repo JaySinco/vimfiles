@@ -38,10 +38,10 @@ lspconfig['tsserver'].setup {
     on_attach = on_attach,
 }
 
-lspconfig['pyright'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
+-- lspconfig['pyright'].setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+-- }
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
