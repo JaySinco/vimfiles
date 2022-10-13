@@ -36,6 +36,7 @@ packer.startup({
         use 'nvim-lua/plenary.nvim' -- lua functions I don't want to write twice
         use 'kyazdani42/nvim-web-devicons'
         use 'SmiteshP/nvim-navic' -- statusline component to show your current code context
+        use 'inkarkat/vim-ReplaceWithRegister'
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = rpath('nvim-treesitter') }
         use { 'simrat39/symbols-outline.nvim', config = rpath('symbols-outline') }
         use { 'preservim/nerdcommenter', config = rpath('nerdcommenter') }
