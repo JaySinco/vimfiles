@@ -1,10 +1,21 @@
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
 local lspconfig = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities();
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 local navic = require("nvim-navic")
+
+lsp_status.config({
+    current_function = false,
+    show_filename = false,
+    diagnostics = false,
+    status_symbol = '',
+})
 
 local on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
+    lsp_status.on_attach(client)
 end
 
 lspconfig['sumneko_lua'].setup {
@@ -31,6 +42,10 @@ lspconfig['sumneko_lua'].setup {
 lspconfig['clangd'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
+    handlers = lsp_status.extensions.clangd.setup(),
+    init_options = {
+        clangdFileStatus = true
+    },
 }
 
 lspconfig['tsserver'].setup {
