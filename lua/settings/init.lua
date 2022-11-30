@@ -10,6 +10,9 @@ vim.o.backspace = "indent,eol,start" -- backspace works on every char in insert 
 vim.o.clipboard = "unnamedplus" -- yanking/deleting operations copy to the system clipboard
 vim.o.autoread = true -- set to auto read when a file is changed from the outside
 vim.o.splitright = true
+if vim.fn.has('win32') == 1 then
+    vim.o.shell = 'cmd'
+end
 
 -------------------
 -- neovide
