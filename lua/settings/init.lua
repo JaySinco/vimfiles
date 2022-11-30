@@ -2,6 +2,8 @@
 -- basic
 -------------------
 vim.g.mapleader = ','
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.o.encoding = "utf-8"
 vim.o.history = 500
 vim.o.updatetime = 300 -- updatetime (default is 4000 ms = 4 s)
@@ -10,15 +12,10 @@ vim.o.backspace = "indent,eol,start" -- backspace works on every char in insert 
 vim.o.clipboard = "unnamedplus" -- yanking/deleting operations copy to the system clipboard
 vim.o.autoread = true -- set to auto read when a file is changed from the outside
 vim.o.splitright = true
+
 if vim.fn.has('win32') == 1 then
     vim.o.shell = 'cmd'
 end
-
--------------------
--- neovide
--------------------
-vim.o.guifont = "FiraMono NF:h11"
-vim.g.neovide_cursor_animation_length = 0.03
 
 -------------------
 -- user interface

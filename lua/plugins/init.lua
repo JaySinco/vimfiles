@@ -38,10 +38,10 @@ packer.startup({
         use 'kyazdani42/nvim-web-devicons'
         use 'SmiteshP/nvim-navic' -- statusline component to show your current code context
         use 'inkarkat/vim-ReplaceWithRegister'
-        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = rpath('nvim-treesitter') }
+        use { 'nvim-treesitter/nvim-treesitter', config = rpath('nvim-treesitter') }
         use { 'simrat39/symbols-outline.nvim', config = rpath('symbols-outline') }
         use { 'preservim/nerdcommenter', config = rpath('nerdcommenter') }
-        use { 'kyazdani42/nvim-tree.lua', config = rpath('nvim-tree') }
+        use { 'kyazdani42/nvim-tree.lua', tag = 'nightly', config = rpath('nvim-tree') }
         use { 'folke/trouble.nvim', config = rpath('trouble') }
         use { 'rcarriga/nvim-notify', config = rpath('nvim-notify') }
         use { "akinsho/toggleterm.nvim", tag = 'v1.*', config = rpath('toggleterm') }
