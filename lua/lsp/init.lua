@@ -2,7 +2,7 @@ local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 local lspconfig = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities();
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 local navic = require("nvim-navic")
 
@@ -63,5 +63,5 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 })
 
 vim.cmd [[
-    autocmd BufWritePre * lua vim.lsp.buf.format()
+    autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 ]]
