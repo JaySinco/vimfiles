@@ -14,7 +14,7 @@ packer.startup({
             return string.format("require('plugins.%s')", name)
         end
 
-        -- NVIM v0.7.2
+        -- NVIM v0.7.2, duedate 2022/09/30
         -- theme
         use { 'sainnhe/gruvbox-material', config = rpath('gruvbox-material'), commit = "2807579bd0a9981575dbb518aa65d3206f04ea02" }
         use { 'feline-nvim/feline.nvim', config = rpath('feline'), commit = "496975425a28ef1f974e90e9664fe3409738f071" }

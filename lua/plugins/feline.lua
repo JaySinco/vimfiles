@@ -139,7 +139,7 @@ components.active[1][2] = {
 components.active[1][3] = {
     provider = function()
         local s = require('lsp-status').status()
-        if string.find(s, "clangd") and string.find(s, "idle") then
+        if string.find(s, "idle") then
             return ""
         else
             return s
@@ -230,17 +230,17 @@ components.active[2][8] = {
 -- RIGHT
 
 -- LspName
--- components.active[3][1] = {
---     provider = 'lsp_client_names',
---     hl = {
---         fg = 'yellow',
---         bg = 'bg',
---         style = 'bold'
---     },
---     right_sep = ' '
--- }
--- fileIcon
 components.active[3][1] = {
+    provider = 'lsp_client_names',
+    hl = {
+        fg = 'yellow',
+        bg = 'bg',
+        style = 'bold'
+    },
+    right_sep = ' '
+}
+-- fileIcon
+components.active[3][2] = {
     provider = function()
         local filename  = vim.fn.expand('%:t')
         local extension = vim.fn.expand('%:e')
@@ -267,7 +267,7 @@ components.active[3][1] = {
     right_sep = ' '
 }
 -- fileType
-components.active[3][2] = {
+components.active[3][3] = {
     provider = 'file_type',
     hl = function()
         local val        = {}
@@ -286,7 +286,7 @@ components.active[3][2] = {
     right_sep = ' '
 }
 -- fileFormat
-components.active[3][3] = {
+components.active[3][4] = {
     provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
     hl = {
         fg = 'white',
@@ -296,7 +296,7 @@ components.active[3][3] = {
     right_sep = ' '
 }
 -- fileEncode
-components.active[3][4] = {
+components.active[3][5] = {
     provider = 'file_encoding',
     hl = {
         fg = 'white',
@@ -306,7 +306,7 @@ components.active[3][4] = {
     right_sep = ' '
 }
 -- lineInfo
-components.active[3][5] = {
+components.active[3][6] = {
     provider = 'position',
     hl = {
         fg = 'white',
@@ -316,7 +316,7 @@ components.active[3][5] = {
     right_sep = ' '
 }
 -- scrollBar
-components.active[3][6] = {
+components.active[3][7] = {
     provider = 'scroll_bar',
     hl = {
         fg = 'yellow',
