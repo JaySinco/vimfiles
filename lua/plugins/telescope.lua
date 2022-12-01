@@ -1,7 +1,10 @@
 require("telescope").setup {
     pickers = {
-        git_files = {
-            theme = "dropdown",
+        live_grep = {
+            theme = "ivy",
+        },
+        find_files = {
+            theme = "ivy",
         }
     },
 }

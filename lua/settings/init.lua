@@ -60,6 +60,8 @@ vim.o.tabstop = 4 -- 1 tab = 4 spaces
 vim.o.shiftwidth = 4 -- indentation rule
 vim.o.autoindent = true
 vim.o.smartindent = true
+vim.o.endofline = false
+vim.o.fixendofline = false
 vim.o.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
 
 -------------------
@@ -97,4 +99,6 @@ vim.cmd [[
     hi FocusedSymbol gui=bold guifg=#C678DD
     command! BufOnly silent! execute "%bd|e#|bd#"
     autocmd FocusGained,BufEnter * checktime
+    autocmd BufNewFile,BufRead *.vs set filetype=glsl
+    autocmd BufNewFile,BufRead *.fs set filetype=glsl
 ]]

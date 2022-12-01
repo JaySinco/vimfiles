@@ -53,10 +53,20 @@ lspconfig['tsserver'].setup {
     on_attach = on_attach,
 }
 
--- lspconfig['pyright'].setup {
---     capabilities = capabilities,
---     on_attach = on_attach,
--- }
+lspconfig['pyright'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly",
+                typeCheckingMode = "basic",
+                useLibraryCodeForTypes = true
+            }
+        },
+    },
+}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",

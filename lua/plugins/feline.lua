@@ -137,7 +137,14 @@ components.active[1][2] = {
 -- }
 -- lsp status
 components.active[1][3] = {
-    provider = function() return require('lsp-status').status() end,
+    provider = function()
+        local s = require('lsp-status').status()
+        if string.find(s, "clangd") and string.find(s, "idle") then
+            return ""
+        else
+            return s
+        end
+    end,
     hl = {
         fg = 'white',
         bg = 'bg',
