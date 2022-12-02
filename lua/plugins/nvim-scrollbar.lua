@@ -2,7 +2,7 @@ require("scrollbar").setup {
     show_in_active_only = true,
     handle = {
         text = " ",
-        color = "#444341",
+        color = "#4d4d4d",
         hide_if_all_visible = true,
     },
     marks = {
