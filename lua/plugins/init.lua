@@ -30,6 +30,8 @@ packer.startup({
 
         -- git
         use { 'sindrets/diffview.nvim', commit = "6baa30d0a6f63da254c2d2c0638a426166973976" }
+        use { 'petertriho/nvim-scrollbar', config = rpath('nvim-scrollbar'), commit = "ce0df6954a69d61315452f23f427566dc1e937ae" }
+        use { 'kevinhwang91/nvim-hlslens', config = rpath('nvim-hlslens'), commit = "5e6ea33cfdf8be57bb33146f1927b7723d3ddff6" }
         use { 'lewis6991/gitsigns.nvim', config = rpath('gitsigns'), commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
         use { 'TimUntersberger/neogit', config = rpath('neogit'), commit = "2a71a5595b49da8a21a20ab8644df9ad0b856ebb" }
 

@@ -97,7 +97,6 @@ vim.diagnostic.config({
 -------------------
 vim.cmd [[
     hi FocusedSymbol gui=bold guifg=#C678DD
-    command! BufOnly silent! execute "%bd|e#|bd#"
     autocmd FocusGained,BufEnter * checktime
     autocmd BufNewFile,BufRead *.vs set filetype=glsl
     autocmd BufNewFile,BufRead *.fs set filetype=glsl
