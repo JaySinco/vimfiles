@@ -13,4 +13,11 @@ require("scrollbar").setup {
         Hint   = { text = { " ", " " }, priority = 4, color = "green" },
         Misc   = { text = { " ", " " }, priority = 5, color = "purple" },
     },
+    handlers = {
+        cursor = false,
+        diagnostic = false,
+        gitsigns = false,
+        handle = true,
+        search = false,
+    },
 }

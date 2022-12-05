@@ -19,6 +19,8 @@ packer.startup({
         use { 'sainnhe/gruvbox-material', config = rpath('gruvbox-material'), commit = "2807579bd0a9981575dbb518aa65d3206f04ea02" }
         use { 'feline-nvim/feline.nvim', config = rpath('feline'), commit = "496975425a28ef1f974e90e9664fe3409738f071" }
         use { 'akinsho/bufferline.nvim', config = rpath('bufferline'), commit = "50448e99ead112e828259f97fa8ce19ad8078b0a" }
+        use { 'Shatur/neovim-session-manager', config = rpath('session-manager'), commit = "4005dac93f5cd1257792259ef4df6af0e3afc213" }
+        use { 'glepnir/dashboard-nvim', config = rpath('dashboard'), commit = "1c4802a654c9127c745cbe2ffff9909a3a9ff965"  }
 
         -- lsp & autocomplete
         use { 'neovim/nvim-lspconfig', commit = "af43c300d4134db3550089cd4df6c257e3734689" }
@@ -46,6 +48,7 @@ packer.startup({
         use { 'nvim-tree/nvim-web-devicons', commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
         use { 'nvim-tree/nvim-tree.lua', config = rpath('nvim-tree'), commit = "45d386a3591f87390390c0d718a81e05895465ca" }
         use { 'folke/trouble.nvim', config = rpath('trouble'), commit = "929315ea5f146f1ce0e784c76c943ece6f36d786" }
+        use { 'nvim-pack/nvim-spectre', commit = "6d877bc1f2262af1053da466e4acd909ad61bc18" }
         use { 'rcarriga/nvim-notify', config = rpath('nvim-notify'), commit = "142069baf554c3d41c8de4a6f7472c618a58becc" }
         use { "akinsho/toggleterm.nvim", config = rpath('toggleterm'), commit = "2a787c426ef00cb3488c11b14f5dcf892bbd0bda" }
         use { "nvim-telescope/telescope.nvim", config = rpath('telescope'), commit = "d4204618dddf1628e7a19ad4a7b910864d1120a5" }
