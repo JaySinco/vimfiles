@@ -12,6 +12,7 @@ vim.keymap.set('n', '<M-Left>', ':tabprevious<cr>', opts)
 vim.keymap.set('n', '<M-Right>', ':tabnext<cr>', opts)
 
 vim.keymap.set('n', '<leader>w', ':w!<cr>', opts)
+vim.keymap.set('n', '<leader>q', ':qa<cr>', opts)
 vim.keymap.set('n', '<leader><cr>', ':nohlsearch<cr>', opts)
 vim.keymap.set('n', '<leader>x', ':bp|bd#<cr>', opts)
 vim.keymap.set('n', '<leader>f', function() require 'telescope.builtin'.live_grep {} end, opts)

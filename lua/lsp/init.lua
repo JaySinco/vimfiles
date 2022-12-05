@@ -61,9 +61,9 @@ lspconfig['pyright'].setup {
             analysis = {
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly",
-                typeCheckingMode = "basic",
+                typeCheckingMode = "off",
                 useLibraryCodeForTypes = true
-            }
+            },
         },
     },
 }

@@ -6,6 +6,7 @@ require('nvim-tree').setup {
         side = 'left'
     },
     git = {
+        enable = false,
         ignore = false,
     },
 }
