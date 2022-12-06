@@ -1,7 +1,6 @@
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-vim.keymap.set('n', '""', ':registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<cr>', opts)
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
 vim.cmd [[ nnoremap <C-w>c <C-w>c<C-w>p ]]
 
