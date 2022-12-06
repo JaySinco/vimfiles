@@ -1,6 +1,5 @@
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
-local navic = require("nvim-navic")
 
 local force_inactive = {
     filetypes = {},
@@ -123,16 +122,6 @@ components.active[1][2] = {
 --             bg = 'bg',
 --             style = 'bold'
 --         },
---     }
--- }
--- nvimNavic
--- components.active[1][4] = {
---     provider = function() return navic.get_location() end,
---     enabled = function() return navic.is_available() end,
---     hl = {
---         fg = 'white',
---         bg = 'bg',
---         style = 'bold'
 --     }
 -- }
 -- lsp status
@@ -316,13 +305,13 @@ components.active[3][6] = {
     right_sep = ' '
 }
 -- scrollBar
--- components.active[3][7] = {
---     provider = 'scroll_bar',
---     hl = {
---         fg = 'yellow',
---         bg = 'bg',
---     },
--- }
+components.active[3][7] = {
+    provider = 'scroll_bar',
+    hl = {
+        fg = 'yellow',
+        bg = 'bg',
+    },
+}
 
 -- INACTIVE
 

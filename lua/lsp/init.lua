@@ -4,7 +4,6 @@ local lspconfig = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities();
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
-local navic = require("nvim-navic")
 
 lsp_status.config({
     current_function = false,
@@ -14,7 +13,6 @@ lsp_status.config({
 })
 
 local on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
     lsp_status.on_attach(client)
 end
 

@@ -32,7 +32,6 @@ packer.startup({
         use { 'nvim-tree/nvim-tree.lua', config = rpath('nvim-tree'), commit = "45d386a3591f87390390c0d718a81e05895465ca" }
         use { 'folke/trouble.nvim', config = rpath('trouble'), commit = "929315ea5f146f1ce0e784c76c943ece6f36d786" }
         use { 'rcarriga/nvim-notify', config = rpath('nvim-notify'), commit = "142069baf554c3d41c8de4a6f7472c618a58becc" }
-        use { 'petertriho/nvim-scrollbar', config = rpath('nvim-scrollbar'), commit = "ce0df6954a69d61315452f23f427566dc1e937ae" }
         use { 'L3MON4D3/LuaSnip', commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" }
 
         -- lsp & autocomplete
@@ -41,7 +40,6 @@ packer.startup({
         use { 'hrsh7th/cmp-nvim-lsp', commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
         use { 'saadparwaiz1/cmp_luasnip', commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" }
         use { 'nvim-lua/lsp-status.nvim', commit = "54f48eb5017632d81d0fd40112065f1d062d0629" }
-        use { 'SmiteshP/nvim-navic', commit = "132b273773768b36e9ecab2138b82234a9faf5ed" }
 
         -- git
         use { 'sindrets/diffview.nvim', commit = "6baa30d0a6f63da254c2d2c0638a426166973976" }
@@ -49,7 +47,6 @@ packer.startup({
         use { 'TimUntersberger/neogit', config = rpath('neogit'), commit = "1843330963cc0299fd453145248681f3d33862b3" }
 
         -- edit
-        use { 'cappyzawa/trim.nvim', config = rpath('nvim-trim'), commit = "ab366eb0dd7b3faeaf90a0ec40c993ff18d8c068" }
         use { 'tversteeg/registers.nvim', config = rpath('nvim-registers'), commit = "7e47d1a04ce1418edea1cc0a8decdbf4dfa660f2" }
         use { 'inkarkat/vim-ReplaceWithRegister', commit = "aad1e8fa31cb4722f20fe40679caa56e25120032" }
         use { 'preservim/nerdcommenter', config = rpath('nerdcommenter'), commit = "2a0a05ff983aa62d74ba868aadf89deb93dd5454" }
