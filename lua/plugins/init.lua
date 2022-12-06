@@ -14,7 +14,7 @@ packer.startup({
             return string.format("require('plugins.%s')", name)
         end
 
-        -- NVIM v0.7.2, duedate 2022/09/30
+        -- NVIM v0.7.2 released at 2022/06/26, next version 2022/09/30
         -- general
         use { 'sainnhe/gruvbox-material', config = rpath('gruvbox-material'), commit = "2807579bd0a9981575dbb518aa65d3206f04ea02" }
         use { 'wbthomason/packer.nvim', commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" }
