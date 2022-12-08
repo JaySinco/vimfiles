@@ -16,27 +16,6 @@ local on_attach = function(client, bufnr)
     lsp_status.on_attach(client)
 end
 
--- lspconfig['sumneko_lua'].setup {
---     capabilities = capabilities,
---     on_attach = on_attach,
---     settings = {
---         Lua = {
---             runtime = {
---                 version = 'LuaJIT',
---             },
---             diagnostics = {
---                 globals = { 'vim' },
---             },
---             workspace = {
---                 library = vim.api.nvim_get_runtime_file("", true),
---             },
---             telemetry = {
---                 enable = false,
---             },
---         },
---     },
--- }
-
 lspconfig['clangd'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
