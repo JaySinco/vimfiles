@@ -41,6 +41,10 @@ packer.startup({
         use { 'saadparwaiz1/cmp_luasnip', commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" }
         use { 'nvim-lua/lsp-status.nvim', commit = "54f48eb5017632d81d0fd40112065f1d062d0629" }
 
+        -- debug 
+        use { 'mfussenegger/nvim-dap', config = rpath('dap'), commit = "5d57c401cab25997a6d8202b2498ad5ac895f143" }
+        use { 'rcarriga/nvim-dap-ui', config = rpath('dap-ui'), commit = "8d0768a83f7b89bd8cb8811800bc121b9353f0b2" }
+
         -- git
         use { 'sindrets/diffview.nvim', commit = "6baa30d0a6f63da254c2d2c0638a426166973976" }
         use { 'lewis6991/gitsigns.nvim', config = rpath('gitsigns'), commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }

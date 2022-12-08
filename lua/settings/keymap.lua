@@ -1,7 +1,6 @@
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
 vim.cmd [[ nnoremap <C-w>c <C-w>c<C-w>p ]]
 
 vim.keymap.set('n', '<C-Up>', ':%bd|e#|bd#|NvimTreeOpen<cr>', opts)
@@ -10,6 +9,7 @@ vim.keymap.set('n', '<C-Right>', ':BufferLineCycleNext<cr>', opts)
 vim.keymap.set('n', '<M-Left>', ':tabprevious<cr>', opts)
 vim.keymap.set('n', '<M-Right>', ':tabnext<cr>', opts)
 
+vim.keymap.set('t', '<leader><Esc>', [[<C-\><C-n>]], opts)
 vim.keymap.set('n', '<leader>w', ':w!<cr>', opts)
 vim.keymap.set('n', '<leader>q', ':qa<cr>', opts)
 vim.keymap.set('n', '<leader><cr>', ':nohlsearch<cr>', opts)
@@ -47,3 +47,8 @@ vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
+
+vim.keymap.set('n', 'B', ":lua require('dap').toggle_breakpoint()<CR>", opts)
+vim.keymap.set('n', '<F3>', ":lua require('dapui').toggle()<CR>", opts)
+vim.keymap.set('n', '<F4>', ":lua require('dap').terminate()<CR>", opts)
+vim.keymap.set('n', '<F5>', ":lua require('dap').continue()<CR>", opts)
