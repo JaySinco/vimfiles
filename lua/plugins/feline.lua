@@ -307,7 +307,7 @@ local c = {
       return fmt(" %s ", vim.bo.filetype:upper())
     end,
     hl = "UserSLAlt",
-    -- right_sep = { str = "", hl = "UserSLAlt", always_visible = true },
+    right_sep = { str = "", hl = "UserSLAlt", always_visible = true },
   },
   fileinfo = {
     provider = { name = "file_info", opts = { type = "relative" } },
@@ -326,7 +326,7 @@ local c = {
   cur_position = {
     provider = function()
       -- TODO: What about 4+ diget line numbers?
-      return fmt("%3d:%-2d ", unpack(vim.api.nvim_win_get_cursor(0)))
+      return fmt("%4d:%-3d", unpack(vim.api.nvim_win_get_cursor(0)))
     end,
     hl = vi_mode_hl,
     left_sep = { str = icons.left_filled, hl = vi_sep_hl },
