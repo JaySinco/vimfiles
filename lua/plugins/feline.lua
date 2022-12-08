@@ -266,6 +266,11 @@ local function vi_sep_hl()
   return vi.sep[vim.fn.mode()] or "UserSLBlack"
 end
 
+---Get scroll bar highlight group from vi mode
+local function scroll_bar_hl()
+  return vi.sep[vim.fn.mode()] or "UserSLBlack"
+end
+
 ---Get the path of the file relative to the cwd
 ---@return string
 local function file_info()
@@ -324,7 +329,7 @@ local c = {
   cur_position = {
     provider = function()
       -- TODO: What about 4+ diget line numbers?
-      return fmt(" %3d:%-2d ", unpack(vim.api.nvim_win_get_cursor(0)))
+      return fmt("%3d:%-2d ", unpack(vim.api.nvim_win_get_cursor(0)))
     end,
     hl = vi_mode_hl,
     left_sep = { str = icons.left_filled, hl = vi_sep_hl },
@@ -342,7 +347,15 @@ local c = {
   },
   lsp_status = {
     provider = function()
-      return vim.tbl_count(vim.lsp.buf_get_clients(0)) == 0 and "" or " ◦ "
+      local buf_clients = vim.lsp.buf_get_clients(0)
+      if vim.tbl_count(buf_clients) == 0 then
+        return ""
+      end
+      local clients = {}
+      for _, client in pairs(buf_clients) do
+        clients[#clients + 1] = client.name
+      end
+      return ' ' .. table.concat(clients, ' ') .. ' '
     end,
     hl = "UserSLStatus",
     left_sep = { str = "", hl = "UserSLStatusBg", always_visible = true },
@@ -389,6 +402,10 @@ local c = {
     provider = file_info,
     hl = "Comment",
   },
+  scroll_bar = {
+    provider = "scroll_bar",
+    hl = scroll_bar_hl,
+  },
 }
 
 local active = {
@@ -407,7 +424,7 @@ local active = {
     c.file_type,
     c.file_enc,
     c.cur_position,
-    c.cur_percent,
+    c.scroll_bar,
   },
 }
 
@@ -422,6 +439,7 @@ require("feline").setup({
   force_inactive = {
     filetypes = {
       "NvimTree",
+      "DiffviewFiles",
       "packer",
       "dap-repl",
       "dapui_scopes",

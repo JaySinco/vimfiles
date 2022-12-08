@@ -41,8 +41,12 @@ packer.startup({
         use { 'saadparwaiz1/cmp_luasnip', commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" }
         use { 'nvim-lua/lsp-status.nvim', commit = "54f48eb5017632d81d0fd40112065f1d062d0629" }
 
-        -- edit
+        -- git
+        use { 'sindrets/diffview.nvim', commit = "6baa30d0a6f63da254c2d2c0638a426166973976" }
         use { 'lewis6991/gitsigns.nvim', config = rpath('gitsigns'), commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
+        use { 'TimUntersberger/neogit', config = rpath('neogit'), commit = "1843330963cc0299fd453145248681f3d33862b3" }
+
+        -- edit
         use { 'tversteeg/registers.nvim', config = rpath('nvim-registers'), commit = "7e47d1a04ce1418edea1cc0a8decdbf4dfa660f2" }
         use { 'inkarkat/vim-ReplaceWithRegister', commit = "aad1e8fa31cb4722f20fe40679caa56e25120032" }
         use { 'preservim/nerdcommenter', config = rpath('nerdcommenter'), commit = "2a0a05ff983aa62d74ba868aadf89deb93dd5454" }
