@@ -35,11 +35,18 @@ vim.keymap.set('n', 'gq', vim.lsp.buf.code_action, opts)
 vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
 vim.keymap.set('n', 'gf', ':TroubleToggle lsp_references<cr>', opts)
 
-vim.keymap.set('n', '<space>g', ':Neogit<cr>', opts)
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", count = 5, hidden = true, direction = "tab" })
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+vim.keymap.set('n', '<space>g', '<cmd>lua _lazygit_toggle()<CR>', opts)
+vim.keymap.set('n', '<space>m', '<Cmd>exe v:count1 . "ToggleTerm"<cr>', opts)
 vim.keymap.set('n', '<space>s', ':Gitsigns setqflist<cr>', opts)
 vim.keymap.set('n', '<space>o', ':SymbolsOutline<cr>', opts)
 vim.keymap.set('n', '<space>a', ':TroubleToggle document_diagnostics<cr>', opts)
-vim.keymap.set('n', '<space>m', '<Cmd>exe v:count1 . "ToggleTerm"<cr>', opts)
 
 vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
