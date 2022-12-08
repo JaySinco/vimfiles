@@ -136,6 +136,7 @@ _G._generate_user_statusline_highlights = function()
     UserSLAlt = pal.sel,
     UserSLAltSep = { fg = pal.sl.bg, bg = pal.sel.bg },
     UserSLGitBranch = { fg = pal.yellow, bg = pal.sl.bg },
+    UserSLScrollBar = { fg = pal.yellow, bg = pal.sl.bg, },
   }
 
   set_highlights(vim.tbl_extend("force", colors, groups))
@@ -228,7 +229,7 @@ local icons = {
   left = "",
   right = "",
   block = "█",
-  left_filled = "",
+  left_filled = "",
   right_filled = "",
   slant_left = "",
   slant_left_thin = "",
@@ -266,11 +267,6 @@ local function vi_sep_hl()
   return vi.sep[vim.fn.mode()] or "UserSLBlack"
 end
 
----Get scroll bar highlight group from vi mode
-local function scroll_bar_hl()
-  return vi.sep[vim.fn.mode()] or "UserSLBlack"
-end
-
 ---Get the path of the file relative to the cwd
 ---@return string
 local function file_info()
@@ -295,13 +291,13 @@ local c = {
       return fmt(" %s ", vi.text[vim.fn.mode()])
     end,
     hl = vi_mode_hl,
-    right_sep = { str = " ", hl = vi_sep_hl },
+    right_sep = { str = " ", hl = vi_sep_hl },
   },
   gitbranch = {
     provider = "git_branch",
     icon = " ",
     hl = "UserSLGitBranch",
-    right_sep = { str = "  ", hl = "UserSLGitBranch" },
+    right_sep = { str = " ", hl = "UserSLGitBranch" },
     enabled = function()
       return vim.b.gitsigns_status_dict ~= nil
     end,
@@ -311,12 +307,13 @@ local c = {
       return fmt(" %s ", vim.bo.filetype:upper())
     end,
     hl = "UserSLAlt",
+    -- right_sep = { str = "", hl = "UserSLAlt", always_visible = true },
   },
   fileinfo = {
     provider = { name = "file_info", opts = { type = "relative" } },
     hl = "UserSLAlt",
-    left_sep = { str = " ", hl = "UserSLAltSep" },
-    right_sep = { str = " ", hl = "UserSLAltSep" },
+    left_sep = { str = " ", hl = "UserSLAltSep" },
+    right_sep = { str = " ", hl = "UserSLAltSep" },
   },
   file_enc = {
     provider = function()
@@ -355,7 +352,7 @@ local c = {
       for _, client in pairs(buf_clients) do
         clients[#clients + 1] = client.name
       end
-      return ' ' .. table.concat(clients, ' ') .. ' '
+      return ' ' .. string.upper(table.concat(clients, ' ')) .. ' '
     end,
     hl = "UserSLStatus",
     left_sep = { str = "", hl = "UserSLStatusBg", always_visible = true },
@@ -404,7 +401,7 @@ local c = {
   },
   scroll_bar = {
     provider = "scroll_bar",
-    hl = scroll_bar_hl,
+    hl = "UserSLScrollBar",
   },
 }
 
