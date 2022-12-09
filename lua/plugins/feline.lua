@@ -437,6 +437,7 @@ require("feline").setup({
     filetypes = {
       "NvimTree",
       "DiffviewFiles",
+      "Outline",
       "packer",
       "dap-repl",
       "dapui_scopes",
