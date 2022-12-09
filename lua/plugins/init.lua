@@ -19,7 +19,7 @@ packer.startup({
         use { 'EdenEast/nightfox.nvim', config = rpath('nightfox'), commit = "59c3dbcec362eff7794f1cb576d56fd8a3f2c8bb" }
         use { 'wbthomason/packer.nvim', commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" }
         use { 'nvim-lua/plenary.nvim', commit = "9e7c62856e47053ec7b17f82c5da0f1e678d92c8" }
-        use { 'Shatur/neovim-session-manager', config = rpath('session-manager'), after = "nvim-tree.lua", commit = "4005dac93f5cd1257792259ef4df6af0e3afc213" }
+        use { 'Shatur/neovim-session-manager', config = rpath('session-manager'), commit = "4005dac93f5cd1257792259ef4df6af0e3afc213" }
 
         -- widget
         use { 'feline-nvim/feline.nvim', config = rpath('feline'), commit = "496975425a28ef1f974e90e9664fe3409738f071" }
