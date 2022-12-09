@@ -101,5 +101,4 @@ vim.cmd [[
     autocmd FocusGained,BufEnter * checktime
     autocmd BufNewFile,BufRead *.vs set filetype=glsl
     autocmd BufNewFile,BufRead *.fs set filetype=glsl
-    autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set filetype=cpp | endif
 ]]
