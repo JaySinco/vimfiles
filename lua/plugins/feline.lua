@@ -443,6 +443,7 @@ require("feline").setup({
       "dapui_scopes",
       "dapui_stacks",
       "dapui_watches",
+      "dapui_breakpoints",
       "dapui_repl",
       "LspTrouble",
       "qf",

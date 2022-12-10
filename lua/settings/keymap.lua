@@ -51,4 +51,10 @@ vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', 'B', ":lua require('dap').toggle_breakpoint()<CR>", opts)
 vim.keymap.set('n', '<F3>', ":lua require('dapui').toggle()<CR>", opts)
 vim.keymap.set('n', '<F4>', ":lua require('dap').terminate()<CR>", opts)
-vim.keymap.set('n', '<F5>', ":lua require('dap').continue()<CR>", opts)
+vim.keymap.set('n', '<F5>', function()
+    require('dap.ext.vscode').load_launchjs(nil, {
+        lldb = {'c', 'cpp'}
+    }) 
+    require('dap').continue()
+end, opts)
+
