@@ -2,20 +2,20 @@ require("dapui").setup {
     layouts = {
         {
             elements = {
-                { id = "breakpoints", size = 0.2 },
-                { id = "stacks", size = 0.3 },
-                { id = "watches", size = 0.3 },
-                { id = "scopes", size = 0.2 },
+                { id = "breakpoints", size = 0.25 },
+                { id = "stacks", size = 0.25 },
+                { id = "watches", size = 0.25 },
+                { id = "scopes", size = 0.25 },
             },
             size = 40, -- columns
-            position = "left",
+            position = "right",
         },
         {
             elements = {
                 -- "console",
                 "repl",
             },
-            size = 0.5, -- % of total lines
+            size = 0.35, -- % of total lines
             position = "bottom",
         },
     },
@@ -27,7 +27,10 @@ require("dapui").setup {
 
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
+    local tree = require('nvim-tree')
+    tree.toggle(false, true)
     dapui.open()
+    tree.toggle(false, true)
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
     dapui.close()
@@ -35,12 +38,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
-
-vim.cmd [[
-   augroup daprepl
-       autocmd FileType dap-repl set nobuflisted
-    augroup end
-]]
 
 vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#993939' }, false)
 vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#61afef' }, false)

@@ -1,5 +1,6 @@
 local dap = require('dap')
 
+-- c++ 
 if vim.fn.has('unix') == 1 then
     dap.adapters.lldb = {
         type = 'executable',
@@ -8,6 +9,7 @@ if vim.fn.has('unix') == 1 then
     }
 end
 
+-- python
 dap.adapters.python = {
     type = 'executable';
     command = 'python';
@@ -22,3 +24,4 @@ dap.configurations.python = {
         program = "${file}",
     }
 }
+

@@ -11,6 +11,11 @@ require("bufferline").setup {
                 text_align = "left",
                 separator = false, -- use a "true" to enable the default, or set your own character
             }
-        }
+        },
+        custom_filter = function(buf_number, buf_numbers)
+            if vim.bo[buf_number].filetype ~= "dap-repl" then
+                return true
+            end
+        end
     }
 }
