@@ -18,10 +18,37 @@ dap.adapters.python = {
 
 dap.configurations.python = {
     {
-        name = "Debug file",
+        name = "Launch file",
         type = 'python',
         request = 'launch',
         program = "${file}",
     }
 }
 
+-- nodejs
+dap.adapters.node2 = {
+    type = 'executable',
+    command = 'node',
+    -- git clone https://github.com/microsoft/vscode-node-debug2.git
+    -- npm install && NODE_OPTIONS=--no-experimental-fetch npm run build
+    args = { os.getenv('USERPROFILE') .. '/ProgramFiles/vscode-node-debug2/out/src/nodeDebug.js' },   
+}
+
+dap.configurations.javascript = {
+    {
+        name = "Launch file",
+        type = "node2",
+        request = "launch",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
+        -- sourceMaps = true,
+        protocol = 'inspector',
+        -- console = 'integratedTerminal',
+    },
+    -- {
+    --     name = "Attach to process",
+    --     type = "node2",
+    --     request = "attach",
+    --     processId = require'dap.utils'.pick_process,
+    -- }
+}
