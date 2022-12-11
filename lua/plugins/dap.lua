@@ -31,7 +31,8 @@ dap.adapters.node2 = {
     command = 'node',
     -- git clone https://github.com/microsoft/vscode-node-debug2.git
     -- npm install && NODE_OPTIONS=--no-experimental-fetch npm run build
-    args = { os.getenv('USERPROFILE') .. '/ProgramFiles/vscode-node-debug2/out/src/nodeDebug.js' },   
+    args = { os.getenv(vim.fn.has('unix') == 1 and 'HOME' or 'USERPROFILE')
+        .. '/ProgramFiles/vscode-node-debug2/out/src/nodeDebug.js' },   
 }
 
 dap.configurations.javascript = {

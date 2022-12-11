@@ -32,12 +32,12 @@ dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
     tree.toggle(false, true)
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
-end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--     dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--     dapui.close()
+-- end
 
 vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#993939' }, false)
 vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#61afef' }, false)
