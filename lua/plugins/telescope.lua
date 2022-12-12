@@ -7,8 +7,9 @@ table.insert(vimgrep_arguments, "!**/.git/*")
 
 require("telescope").setup {
     defaults = {
-		vimgrep_arguments = vimgrep_arguments,
-	},
+        vimgrep_arguments = vimgrep_arguments,
+        scroll_strategy = "limit",
+    },
     pickers = {
         live_grep = {
             theme = "ivy",
