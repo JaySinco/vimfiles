@@ -2,10 +2,10 @@ require("dapui").setup {
     layouts = {
         {
             elements = {
-                { id = "breakpoints", size = 0.25 },
-                { id = "stacks", size = 0.25 },
-                { id = "watches", size = 0.25 },
-                { id = "scopes", size = 0.25 },
+                { id = "breakpoints", size = 0.15 },
+                { id = "stacks", size = 0.35 },
+                { id = "watches", size = 0.2 },
+                { id = "scopes", size = 0.3 },
             },
             size = 40, -- columns
             position = "right",
