@@ -28,9 +28,9 @@ require("dapui").setup {
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
     local tree = require('nvim-tree')
-    tree.toggle(false, true)
+    tree.toggle(true, true)
     dapui.open()
-    tree.toggle(false, true)
+    tree.toggle(true, true)
 end
 -- dap.listeners.before.event_terminated["dapui_config"] = function()
 --     dapui.close()
