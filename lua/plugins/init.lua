@@ -39,7 +39,7 @@ packer.startup({
         use { 'hrsh7th/nvim-cmp', commit = "2427d06b6508489547cd30b6e86b1c75df363411" }
         use { 'hrsh7th/cmp-nvim-lsp', commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
         use { 'saadparwaiz1/cmp_luasnip', commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" }
-        use { 'nvim-lua/lsp-status.nvim', commit = "54f48eb5017632d81d0fd40112065f1d062d0629" }
+        use { 'lukas-reineke/lsp-format.nvim', commit = "b611bd6cea82ccc127cf8fd781a1cb784b0d6d3c" }
 
         -- debug 
         use { 'mfussenegger/nvim-dap', config = rpath('dap'), commit = "5d57c401cab25997a6d8202b2498ad5ac895f143" }
