@@ -22,6 +22,12 @@ end
 lspconfig['clangd'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
+    cmd = {
+        "clangd",
+        "--completion-style=detailed",
+        "--function-arg-placeholders=0",
+        "--header-insertion=never",
+    },
 }
 
 lspconfig['tsserver'].setup {
