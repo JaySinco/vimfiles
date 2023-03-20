@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 vim.cmd [[ nnoremap <C-w>c <C-w>c<C-w>p ]]
 
-vim.keymap.set('t', '`<Esc>', [[<C-\><C-n>]], opts)
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)
 vim.keymap.set('n', '<C-Up>', ':%bd|e#|bd#|NvimTreeOpen<cr>', opts)
 vim.keymap.set('n', '<C-Left>', ':BufferLineCyclePrev<cr>', opts)
 vim.keymap.set('n', '<C-Right>', ':BufferLineCycleNext<cr>', opts)
