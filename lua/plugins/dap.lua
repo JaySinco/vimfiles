@@ -53,3 +53,17 @@ dap.configurations.javascript = {
     --     processId = require'dap.utils'.pick_process,
     -- }
 }
+
+dap.configurations.cpp = {
+    {
+        name = "Launch file",
+        type = "lldb",
+        request = "launch",
+        program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/bin/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        terminal = 'integrated',
+    },
+}
