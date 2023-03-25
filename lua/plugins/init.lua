@@ -42,8 +42,7 @@ packer.startup({
         use { 'lukas-reineke/lsp-format.nvim', commit = "b611bd6cea82ccc127cf8fd781a1cb784b0d6d3c" }
 
         -- debug 
-        use { 'mfussenegger/nvim-dap', config = rpath('dap'), commit = "5d57c401cab25997a6d8202b2498ad5ac895f143" }
-        use { 'rcarriga/nvim-dap-ui', config = rpath('dap-ui'), commit = "8d0768a83f7b89bd8cb8811800bc121b9353f0b2" }
+        use { 'sakhnik/nvim-gdb', config = rpath('nvim-gdb'), commit = "4408d2c10618636101945e9cd9ef9d68fc335e19" }
 
         -- git
         use { 'sindrets/diffview.nvim', commit = "6baa30d0a6f63da254c2d2c0638a426166973976" }

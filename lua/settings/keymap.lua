@@ -27,6 +27,10 @@ vim.keymap.set('n', '<leader>sa', ':SessionManager load_last_session<cr>', opts)
 vim.keymap.set('n', '<leader>ss', ':SessionManager save_current_session<cr>', opts)
 vim.keymap.set('n', '<leader>sd', ':SessionManager delete_session<cr>', opts)
 
+vim.keymap.set('n', 'B', ":GdbBreakpointToggle<CR>", opts)
+vim.keymap.set('n', '<leader>dd', ":GdbStart gdb -q ./bin/", opts)
+vim.keymap.set('n', '<leader>dd', ":GdbStart gdb -q ./bin/", opts)
+
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
 vim.keymap.set('n', 'gc', vim.lsp.buf.declaration, opts)
@@ -47,19 +51,4 @@ vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
 vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
-
-vim.keymap.set('n', 'B', ":lua require('dap').toggle_breakpoint()<CR>", opts)
-vim.keymap.set('n', '<F3>', function()
-    local tree = require('nvim-tree')
-    tree.toggle(true, true)
-    require('dapui').toggle() 
-    tree.toggle(true, true)
-end, opts)
-vim.keymap.set('n', '<F4>', ":lua require('dap').terminate()<CR>", opts)
-vim.keymap.set('n', '<F5>', function()
-    require('dap.ext.vscode').load_launchjs(nil, {
-        lldb = {'c', 'cpp'}
-    }) 
-    require('dap').continue()
-end, opts)
 
