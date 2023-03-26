@@ -53,7 +53,7 @@ packer.startup({
         use { 'tversteeg/registers.nvim', config = rpath('nvim-registers'), commit = "7e47d1a04ce1418edea1cc0a8decdbf4dfa660f2" }
         use { 'inkarkat/vim-ReplaceWithRegister', commit = "aad1e8fa31cb4722f20fe40679caa56e25120032" }
         use { 'preservim/nerdcommenter', config = rpath('nerdcommenter'), commit = "2a0a05ff983aa62d74ba868aadf89deb93dd5454" }
-        use { 'nvim-pack/nvim-spectre', commit = "6d877bc1f2262af1053da466e4acd909ad61bc18" }
+        use { 'nvim-pack/nvim-spectre', config = rpath('nvim-spectre'), commit = "6d877bc1f2262af1053da466e4acd909ad61bc18" }
         use { "lukas-reineke/indent-blankline.nvim", config = rpath('indent-blankline'), commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
         use { "nvim-telescope/telescope.nvim", config = rpath('telescope'), commit = "d4204618dddf1628e7a19ad4a7b910864d1120a5" }
         use { 'kevinhwang91/nvim-hlslens', config = rpath('nvim-hlslens'), commit = "5e6ea33cfdf8be57bb33146f1927b7723d3ddff6" }
